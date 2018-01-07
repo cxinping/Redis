@@ -32,8 +32,8 @@ if( null == obj){
 	out.println("该页面被访问了1次<br/>");
 }else{
 	int counterVal = Integer.parseInt( obj.toString() );
-	out.println("该页面被访问了 " + counterVal +" 次");
 	counterVal ++;
+	out.println("该页面被访问了 " + counterVal +" 次");
 	session.setAttribute("counter", counterVal);
 }
 
