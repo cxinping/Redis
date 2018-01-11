@@ -5,6 +5,9 @@
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
+		<accessrules>
+			<accessrule kind="accessible" pattern="**"/>
+		</accessrules>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
