@@ -25,6 +25,8 @@ public class TestSNS {
 		//取zhangsan和lisi的共同好友
 		System.out.println("zhangsan和lisi共同的朋友 =>"+ jedis.sinter("zhangsan","lisi"));
 		
+		//释放资源
+		jedis.close();
 		
 	}
 
