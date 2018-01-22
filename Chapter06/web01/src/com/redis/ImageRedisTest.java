@@ -23,7 +23,7 @@ public class ImageRedisTest {
 	 * 将图片对象写入Redis中
 	 * 
 	 */
-	public void setObject() {
+	public void saveImage() {
 		URL url = null;
 		try {
 			url = new URL("http://p1s8k4lys.bkt.clouddn.com/pandas.jpg");
@@ -40,7 +40,7 @@ public class ImageRedisTest {
 	 * 从 Redis中获得图片，保存到本地
 	 * 
 	 */
-	public void getObject() {
+	public void getImage() {
 		System.out.println(jedis.get(("image:e:/pandas.jpg")));
 		String encoderStr = jedis.get("image:e:/pandas.jpg");
 		Base64ImageUtils.decodeBase64ToImage(encoderStr, "E:/", "pandas2.jpg");
@@ -49,9 +49,10 @@ public class ImageRedisTest {
 
 	public static void main(String[] args) {
 		ImageRedisTest test = new ImageRedisTest();
-		//test.setObject();
-		test.getObject();
-
+		test.saveImage();
+		test.getImage();
 	}
+	
+	
 
 }
