@@ -13,16 +13,17 @@
 
 	var trace0 = {
 	  x: [1, 2, 3, 4],
-	  y: [10, 15, 13, 17],
+	  y: [10, 15, 23, 27],
 	  mode:'markers', // 纯散点的绘图
 	  type: 'scatter'
 	};
 
 	var trace1 = {
 	  x: [2, 3, 4, 5],
-	  y: [16, 5, 11, 9],
+	  y: [16, 15, 11, 29],
 	  mode: 'lines',  //纯曲线的绘图
-	  type: 'scatter'
+	  type: 'scatter',
+	  name :'Redis 分配的内存总量'
 	};
 
 	var trace2 = {
@@ -32,7 +33,7 @@
 	  type: 'scatter'
 	};
 
-	var data = [trace0, trace1, trace2];
+	var data = [  trace1, trace2];
 
 	Plotly.newPlot('myDiv', data);
     </script>    
