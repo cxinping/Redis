@@ -11,30 +11,20 @@
       <script src="js/plotly.min.js"></script>
     <script>
 
-	var trace0 = {
-	  x: [1, 2, 3, 4],
-	  y: [10, 15, 23, 27],
-	  mode:'markers', // 纯散点的绘图
-	  type: 'scatter'
-	};
+	var data = [
+  {
+    x: ['2018-01-04 12:23:00', '2018-01-04 13:33:00', '2018-01-04 14:23:00'],
+    y: [1, 3, 6],
+    type: 'scatter',
+    name: '内存占用'
+  }
+];
 
-	var trace1 = {
-	  x: [2, 3, 4, 5],
-	  y: [16, 15, 11, 29],
-	  mode: 'lines',  //纯曲线的绘图
-	  type: 'scatter',
-	  name :'Redis 分配的内存总量'
-	};
+var layout = {
+  title: 'Redis 分配的内存总量',
+};
 
-	var trace2 = {
-	  x: [1, 2, 3, 4],
-	  y: [12, 9, 15, 12],
-	  mode: 'lines+markers', // 散点+曲线的绘图
-	  type: 'scatter'
-	};
+Plotly.newPlot('myDiv', data,layout);
 
-	var data = [  trace1, trace2];
-
-	Plotly.newPlot('myDiv', data);
     </script>    
 </html>
