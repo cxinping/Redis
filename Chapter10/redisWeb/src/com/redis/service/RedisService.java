@@ -42,7 +42,7 @@ public class RedisService {
         return ridList;
     }	
 	
-	public RedisInfoDetail getRedisInfo(String oneKey) {
+	public List<RedisInfoDetail> getRedisInfo(List keys) {
         //获取redis服务器信息
         String info = redisUtil.getRedisInfo();
         List<RedisInfoDetail> ridList = new ArrayList<RedisInfoDetail>();
@@ -54,17 +54,16 @@ public class RedisService {
                 
                 String s = strs[i];
                 String[] str = s.split(":");
-                if (str != null && str.length > 1 && str[0].equals(oneKey) ) {
+                if (str != null && str.length > 1 && keys.contains(str[0]) ) {
                     String key = str[0];
                     String value = str[1];
                     rif.setKey(key);
                     rif.setValue(value);
                     ridList.add(rif);
-                    return rif;
                 }
             }
         }
-        return rif;
+        return ridList;
     }	
 	
 	 //获取redis日志列表
@@ -134,8 +133,9 @@ public class RedisService {
     }
     
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		RedisService service = new RedisService();
+		List list = service.getRedisInfo();
+		System.out.println(list);
 	}
 
 }

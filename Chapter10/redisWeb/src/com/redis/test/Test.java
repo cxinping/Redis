@@ -1,8 +1,10 @@
 package com.redis.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.alibaba.fastjson.JSON;
 import com.redis.service.RedisService;
-import com.redis.util.RedisUtil;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -48,8 +50,12 @@ public class Test {
 //    	System.out.println( jedis );
     	
     	RedisService redisService = new RedisService();
-    	
-    	System.out.println(  JSON.toJSONString(redisService.getRedisInfo("used_memory_human") ));
+    	List keys = new ArrayList();
+    	//redis 内存实时占用情况
+    	keys.add("used_memory_human");
+    	//redis key的实时数量
+    	keys.add("db");
+    	System.out.println(  JSON.toJSONString(redisService.getRedisInfo(keys) ));
 
     	//    	RedisUtil redisUtil = new RedisUtil();
 //    	redisUtil.getRedisInfo();

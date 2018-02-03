@@ -22,7 +22,7 @@ public class Test2 {
 		jedis.rpush("java framework", "spring");
 		jedis.rpush("java framework", "struts");
 		jedis.rpush("java framework", "hibernate");
-		for(int i=0;i<3000;i++){
+		for(int i=0;i<300;i++){
 			jedis.rpush("java framework"+i, "hibernate"+i);
 		}
 		System.out.println(jedis.lrange("java framework", 0, -1));
