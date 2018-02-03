@@ -42,7 +42,8 @@
 
     //接收到消息的回调方法
     websocket.onmessage = function (event) {
-        setMessageInnerHTML(event.data);
+    	setMessageInnerHTML(event.data);
+    	console.log( event.data);
     }
 
     //连接关闭的回调方法
