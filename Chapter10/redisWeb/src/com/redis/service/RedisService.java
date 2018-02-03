@@ -42,7 +42,7 @@ public class RedisService {
         return ridList;
     }	
 	
-	public List<RedisInfoDetail> getRedisInfo(List keys) {
+	public RedisInfoDetail getRedisInfo(String redisInfo , String index) {
         //获取redis服务器信息
         String info = redisUtil.getRedisInfo();
         List<RedisInfoDetail> ridList = new ArrayList<RedisInfoDetail>();
@@ -54,16 +54,68 @@ public class RedisService {
                 
                 String s = strs[i];
                 String[] str = s.split(":");
-                if (str != null && str.length > 1 && keys.contains(str[0]) ) {
+                if (str != null && str.length > 1 && index.contains(str[0]) ) {
                     String key = str[0];
                     String value = str[1];
                     rif.setKey(key);
                     rif.setValue(value);
                     ridList.add(rif);
+                    return rif;
                 }
             }
         }
-        return ridList;
+        return rif;
+    }	
+	
+	
+	public RedisInfoDetail getKeysValue(String redisInfo ) {
+        //获取redis服务器信息
+        String info = redisUtil.getRedisInfo();
+        List<RedisInfoDetail> ridList = new ArrayList<RedisInfoDetail>();
+        String[] strs = info.split("\n");
+        RedisInfoDetail rif = null;
+        String keys = "keys";
+        Map<String , Integer> map = new HashMap<String , Integer>();
+        if (strs != null && strs.length > 0) {
+            for (int i = 0; i < strs.length; i++) {
+                rif = new RedisInfoDetail();
+                
+                String s = strs[i];
+                
+                if(s.indexOf(":keys") > -1){
+                	String[] str = s.split(",");
+                	if(null != str){
+                		String[] dbs = str[0].split(":");
+                	    String[] dbKeys = dbs[1].split("=");
+                	    String key = dbKeys[0];
+                	    Integer value = Integer.valueOf( dbKeys[1] );
+                	    
+                	    Integer keysVal = map.get("keys");
+                	    if(null == keysVal){
+                	    	map.put("keys", value);
+                	    }else{
+                	    	map.put("keys", keysVal + value);
+                	    }
+                	    
+                	    rif.setKey(key);
+                        rif.setValue(map.get("keys")+"");
+                      
+                	   }
+                	
+                }
+                
+                String[] str = s.split(":");
+//                if (str != null && str.length > 1 && index.contains(str[0]) ) {
+//                    String key = str[0];
+//                    String value = str[1];
+//                    rif.setKey(key);
+//                    rif.setValue(value);
+//                    ridList.add(rif);
+//                    return rif;
+//                }
+            }
+        }
+        return rif;
     }	
 	
 	 //获取redis日志列表
