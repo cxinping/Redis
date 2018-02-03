@@ -11,6 +11,7 @@ import java.util.Map;
 import com.alibaba.fastjson.JSON;
 import com.redis.entity.Operate;
 import com.redis.entity.RedisInfoDetail;
+import com.redis.util.DateUtil;
 import com.redis.util.RedisUtil;
 
 import redis.clients.util.Slowlog;
@@ -59,6 +60,8 @@ public class RedisService {
                     String value = str[1];
                     rif.setKey(key);
                     rif.setValue(value);
+                    rif.setDate( DateUtil.getCurrntTime());
+                    
                     ridList.add(rif);
                     return rif;
                 }
@@ -99,7 +102,7 @@ public class RedisService {
                 	    
                 	    rif.setKey(key);
                         rif.setValue(map.get("keys")+"");
-                      
+                        rif.setDate( DateUtil.getCurrntTime());
                 	   }
                 	
                 }

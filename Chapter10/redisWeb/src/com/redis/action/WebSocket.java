@@ -2,10 +2,21 @@ package com.redis.action;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-import javax.websocket.*;
+import javax.websocket.OnClose;
+import javax.websocket.OnError;
+import javax.websocket.OnMessage;
+import javax.websocket.OnOpen;
+import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
+
+import com.alibaba.fastjson.JSON;
+import com.redis.entity.RedisInfoDetail;
+import com.redis.service.RedisService;
+import com.redis.util.RedisUtil;
 
 /**
  * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,
@@ -60,7 +71,26 @@ public class WebSocket {
 	        // 群发消息
 	        for (WebSocket item : webSocketSet) {
 	            try {
-	                item.sendMessage("The Server received a message =>"+message);
+	            	
+	            	RedisService redisService = new RedisService();
+	        		RedisUtil redisUtil = new RedisUtil();
+	        		String info = redisUtil.getRedisInfo();
+	        		// redis 内存实时占用情况
+	        		RedisInfoDetail memoryDetail = redisService.getRedisInfo(info, "used_memory_human");
+	        		// redis key的实时数量
+	        		RedisInfoDetail keysDetail = redisService.getKeysValue(info);
+	        		List<RedisInfoDetail> details = new ArrayList<RedisInfoDetail>(); 
+	        		details.add(memoryDetail );
+	        		details.add(keysDetail );
+	        		//System.out.println(JSON.toJSONString( details));
+	        		//String keysVal = JSON.toJSONString(redisService.getKeysValue(info));
+	        		//System.out.println(keysVal);
+	            	
+	                //item.sendMessage("The Server received a message =>"+message);
+	                
+	                item.sendMessage(JSON.toJSONString(details) );
+	                
+	                
 	            } catch (IOException e) {
 	                e.printStackTrace();
 	                continue;
