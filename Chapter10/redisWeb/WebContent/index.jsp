@@ -51,6 +51,55 @@
 	websocket.onmessage = function(event) {
 		setMessageInnerHTML(event.data);
 		console.log(event.data);
+
+		jsonObj = JSON.parse(event.data);
+		console.log(jsonObj);
+
+		handle(jsonObj);
+
+	}
+	
+	function trim(x) {
+	    return x.replace(/^\s+|\s+$/gm,'');
+	}
+
+	function handle(jsonObj) {
+		var data1 = {};
+		data1.type =  'scatter';
+		data1.name =  '内存占用';
+		
+		var datas1 = [];
+		
+		var x1 = new Array();
+		var y1 = new Array();
+
+		for (var i = 0; i < jsonObj.length; i++) {
+			console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "
+					+ jsonObj[i].value);
+
+			if (jsonObj[i].key == 'used_memory') {
+				x1.push(jsonObj[i].date);
+				y1.push( trim(jsonObj[i].value));
+				data1.x = x1;
+				data1.y = y1;
+			}	else if (jsonObj[i].key == 'keys') {
+			
+				
+			}
+
+		}
+
+		datas1.push(data1);
+		console.log( datas1 );
+		console.log(JSON.stringify( datas1 ) );
+			
+		var layout = {
+			title : 'Redis 分配的内存总量',
+		};
+
+		
+		Plotly.newPlot('indexDiv1', datas1, layout);
+
 	}
 
 	//连接关闭的回调方法
@@ -93,6 +142,7 @@
 
 	Plotly.newPlot('indexDiv1', data, layout);
 
+	
 	var data2 = [ {
 		x : [ '2018-01-04 12:23:00', '2018-01-04 13:33:00',
 				'2018-01-04 14:23:00', '2018-01-04 14:35:00' ],

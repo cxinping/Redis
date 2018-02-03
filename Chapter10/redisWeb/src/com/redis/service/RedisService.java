@@ -13,6 +13,7 @@ import com.redis.entity.Operate;
 import com.redis.entity.RedisInfoDetail;
 import com.redis.util.DateUtil;
 import com.redis.util.RedisUtil;
+import com.redis.util.Tools;
 
 import redis.clients.util.Slowlog;
 
@@ -57,9 +58,9 @@ public class RedisService {
 				String[] str = s.split(":");
 				if (str != null && str.length > 1 && index.contains(str[0])) {
 					String key = str[0];
-					String value = str[1];
+					String value = str[1].trim();
 					rif.setKey(key);
-					rif.setValue(value);
+					rif.setValue(Tools.setMBSize(Integer.valueOf(value)));
 					rif.setDate(DateUtil.getCurrntTime());
 
 					ridList.add(rif);
