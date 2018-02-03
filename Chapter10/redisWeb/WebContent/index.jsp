@@ -55,7 +55,7 @@
 		jsonObj = JSON.parse(event.data);
 		console.log(jsonObj);
 
-		handle(jsonObj);
+		render(jsonObj);
 
 	}
 	
@@ -63,15 +63,16 @@
 	    return x.replace(/^\s+|\s+$/gm,'');
 	}
 
-	function handle(jsonObj) {
-		var data1 = {};
-		data1.type =  'scatter';
-		data1.name =  '内存占用';
+	var data1 = {};
+	data1.type =  'scatter';
+	data1.name =  '内存占用';
+	
+	var datas1 = [];
+	var x1 = new Array();
+	var y1 = new Array();
+	
+	function render(jsonObj) {
 		
-		var datas1 = [];
-		
-		var x1 = new Array();
-		var y1 = new Array();
 
 		for (var i = 0; i < jsonObj.length; i++) {
 			console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "
@@ -79,7 +80,7 @@
 
 			if (jsonObj[i].key == 'used_memory') {
 				x1.push(jsonObj[i].date);
-				y1.push( trim(jsonObj[i].value));
+				y1.push( jsonObj[i].value);
 				data1.x = x1;
 				data1.y = y1;
 			}	else if (jsonObj[i].key == 'keys') {
