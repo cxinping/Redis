@@ -20,7 +20,7 @@
 
 	<div id="message"></div>
 
-	<div id="indexDiv1" style="width: 800px; height: 300px;"></div>
+	<div id="indexDiv1" style="width: 900px; height: 400px;"></div>
 
 	<div id="indexDiv2" style="width: 800px; height: 300px;"></div>
 
@@ -32,7 +32,7 @@
 	//判断当前浏览器是否支持WebSocket
 	if ('WebSocket' in window) {
 		websocket = new WebSocket("ws://localhost:8080/redisWeb/websocket");
-		console.log('websocket=' + websocket);
+		//console.log('websocket=' + websocket);
 	} else {
 		alert('当前浏览器 Not support websocket')
 	}
@@ -45,61 +45,68 @@
 	//连接成功建立的回调方法
 	websocket.onopen = function() {
 		setMessageInnerHTML("WebSocket连接成功");
+
+		//loopData();
+	}
+
+	function loopData() {
+		send();
+		setTimeout('loopData()', 5000);
+
 	}
 
 	//接收到消息的回调方法
 	websocket.onmessage = function(event) {
 		setMessageInnerHTML(event.data);
 		console.log(event.data);
-
+	
 		jsonObj = JSON.parse(event.data);
-		console.log(jsonObj);
+		//console.log(jsonObj);
 
 		render(jsonObj);
 
 	}
-	
+
 	function trim(x) {
-	    return x.replace(/^\s+|\s+$/gm,'');
+		return x.replace(/^\s+|\s+$/gm, '');
 	}
 
 	var data1 = {};
-	data1.type =  'scatter';
-	data1.name =  '内存占用';
-	
+	data1.type = 'scatter';
+	data1.name = '内存占用';
+
 	var datas1 = [];
 	var x1 = new Array();
 	var y1 = new Array();
-	
-	function render(jsonObj) {
-		
 
+	function render(jsonObj) {
+
+		
 		for (var i = 0; i < jsonObj.length; i++) {
-			console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "
-					+ jsonObj[i].value);
+			//console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
 				x1.push(jsonObj[i].date);
-				y1.push( jsonObj[i].value);
+				y1.push(jsonObj[i].value);
 				data1.x = x1;
 				data1.y = y1;
-			}	else if (jsonObj[i].key == 'keys') {
-			
-				
+			} else if (jsonObj[i].key == 'keys') {
+
 			}
 
 		}
 
 		datas1.push(data1);
-		console.log( datas1 );
-		console.log(JSON.stringify( datas1 ) );
-			
-		var layout = {
+		//console.log(datas1);
+		console.log(JSON.stringify(datas1));
+
+		var layout1 = {
 			title : 'Redis 分配的内存总量',
 		};
 
-		
-		Plotly.newPlot('indexDiv1', datas1, layout);
+		//Plotly.newPlot('indexDiv1', datas1, layout1 );
+		//Plotly.newPlot('indexDiv1', datas1);
+		Plotly.newPlot('indexDiv1', datas1, layout1);
 
 	}
 
@@ -128,7 +135,7 @@
 		var message = document.getElementById('text').value;
 		websocket.send(message);
 	}
-
+	/***
 	var data = [ {
 		x : [ '2018-01-04 12:23:00', '2018-01-04 13:33:00',
 				'2018-01-04 14:23:00' ],
@@ -140,10 +147,10 @@
 	var layout = {
 		title : 'Redis 分配的内存总量',
 	};
+	 **/
 
-	Plotly.newPlot('indexDiv1', data, layout);
+	//Plotly.newPlot('indexDiv1', data, layout);
 
-	
 	var data2 = [ {
 		x : [ '2018-01-04 12:23:00', '2018-01-04 13:33:00',
 				'2018-01-04 14:23:00', '2018-01-04 14:35:00' ],
