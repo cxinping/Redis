@@ -78,25 +78,32 @@
 	var datas1 = [];
 	var x1 = new Array();
 	var y1 = new Array();
-
+	data1.x = [] ;
+	data1.y = [] ;
+	
+	datas1.push(data1);
+	
 	function render(jsonObj) {
-
 		
 		for (var i = 0; i < jsonObj.length; i++) {
 			//console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
-				x1.push(jsonObj[i].date);
-				y1.push(jsonObj[i].value);
-				data1.x = x1;
-				data1.y = y1;
+				//data1.x.push(jsonObj[i].date);
+				//data1.y.push(jsonObj[i].value);
+				//data1.x = x1;
+				//data1.y = y1;
+				
+				data1.x[data1.x.length] = jsonObj[i].date;
+				data1.y[data1.y.length] = jsonObj[i].value;
+				
 			} else if (jsonObj[i].key == 'keys') {
 
 			}
 
 		}
 
-		datas1.push(data1);
+		
 		//console.log(datas1);
 		console.log(JSON.stringify(datas1));
 
