@@ -43,6 +43,12 @@ public class Operate {
 		this.args = args;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Operate [id=" + id + ", executeTime=" + executeTime + ", usedTime=" + usedTime + ", args=" + args + "]";
+	}
+
 	
 
 }

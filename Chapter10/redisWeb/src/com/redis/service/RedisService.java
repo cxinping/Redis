@@ -193,7 +193,14 @@ public class RedisService {
 	public static void main(String[] args) {
 		RedisService service = new RedisService();
 		List list = service.getRedisInfo();
-		System.out.println(list);
+		//System.out.println(list);
+		
+		List<Operate> operates = service.getLogs(100);
+		
+		for(int i=0;i<operates.size();i++){
+			Operate operate = operates.get(i);
+			System.out.println(operate);	
+		}
 	}
 
 }
