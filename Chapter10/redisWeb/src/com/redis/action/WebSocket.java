@@ -58,6 +58,8 @@ public class WebSocket {
 	        System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
 	    }
 
+	    private Thread thread = null;
+	    
 	    /**
 	     * 收到客户端消息后调用的方法
 	     * 
@@ -70,7 +72,7 @@ public class WebSocket {
 	    public void onMessage(String message, Session session) {
 	        System.out.println("来自客户端的消息:" + message);
 	        
-	        Thread thread = null;
+	       
             
 	        // 群发消息
 	        for (WebSocket item : webSocketSet) {
