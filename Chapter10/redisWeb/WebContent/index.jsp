@@ -102,7 +102,7 @@
 				//data1.x = x1;
 				//data1.y = y1;
 				
-				if(data1.x.length < 10 ){
+				if(data1.x.length < 18 ){
 					data1.x[data1.x.length] = jsonObj[i].date;
 					data1.y[data1.y.length] = jsonObj[i].value;	
 					
@@ -128,7 +128,7 @@
 		console.log(JSON.stringify(datas1));
 
 		var layout1 = {
-			title : 'Redis 分配的内存总量',
+			title : 'Redis 分配的内存总量(单位:M)',
 		};
 
 		//Plotly.newPlot('indexDiv1', datas1, layout1 );
@@ -191,7 +191,7 @@
 
 	} ];
 
-	var layout2 = {
+	var layout2 = { 
 		title : 'Redis Key的实时数量',
 	};
 
