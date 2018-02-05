@@ -84,8 +84,6 @@
 	data1.name = '内存占用';
 
 	var datas1 = [];
-	var x1 = new Array();
-	var y1 = new Array();
 	data1.x = [] ;
 	data1.y = [] ;
 	
@@ -97,10 +95,6 @@
 			//console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
-				//data1.x.push(jsonObj[i].date);
-				//data1.y.push(jsonObj[i].value);
-				//data1.x = x1;
-				//data1.y = y1;
 				
 				if(data1.x.length < 18 ){
 					data1.x[data1.x.length] = jsonObj[i].date;
@@ -131,8 +125,6 @@
 			title : 'Redis 分配的内存总量(单位:M)',
 		};
 
-		//Plotly.newPlot('indexDiv1', datas1, layout1 );
-		//Plotly.newPlot('indexDiv1', datas1);
 		Plotly.newPlot('indexDiv1', datas1, layout1);
 
 	}
