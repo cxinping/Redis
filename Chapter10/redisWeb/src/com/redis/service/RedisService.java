@@ -11,7 +11,6 @@ import java.util.Map;
 import com.alibaba.fastjson.JSON;
 import com.redis.entity.Operate;
 import com.redis.entity.RedisInfoDetail;
-import com.redis.util.DateUtil;
 import com.redis.util.RedisUtil;
 import com.redis.util.Tools;
 
@@ -62,7 +61,7 @@ public class RedisService {
 					rif.setKey(key);
 					//由 Redis 分配器分配的内存总量，以字节（byte）为单位，转换为M 
 					rif.setValue(Tools.setMBSize(Integer.valueOf(value)));
-					rif.setDate(DateUtil.getCurrntTime());
+					rif.setDate(Tools.getCurrntTime());
 
 					ridList.add(rif);
 					return rif;
@@ -103,13 +102,13 @@ public class RedisService {
 
 						rif.setKey(key);
 						rif.setValue(map.get("keys") + "");
-						rif.setDate(DateUtil.getCurrntTime());
+						rif.setDate(Tools.getCurrntTime());
 					}
 
 				}else{
 					rif.setKey("keys");
 					rif.setValue(map.get("keys") + "");
-					rif.setDate(DateUtil.getCurrntTime());
+					rif.setDate(Tools.getCurrntTime());
 				}
 				
 				
