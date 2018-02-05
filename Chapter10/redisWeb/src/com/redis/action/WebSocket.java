@@ -16,6 +16,7 @@ import javax.websocket.server.ServerEndpoint;
 import com.alibaba.fastjson.JSON;
 import com.redis.entity.RedisInfoDetail;
 import com.redis.service.RedisService;
+import com.redis.service.ServiceHandler;
 import com.redis.util.RedisUtil;
 
 /**
@@ -68,10 +69,13 @@ public class WebSocket {
 	    @OnMessage
 	    public void onMessage(String message, Session session) {
 	        System.out.println("来自客户端的消息:" + message);
+	        
+	        Thread thread = null;
+            
 	        // 群发消息
 	        for (WebSocket item : webSocketSet) {
 	            try {
-	            	
+	            	/***
 	            	RedisService redisService = new RedisService();
 	        		RedisUtil redisUtil = new RedisUtil();
 	        		String info = redisUtil.getRedisInfo();
@@ -89,13 +93,18 @@ public class WebSocket {
 	                //item.sendMessage("The Server received a message =>"+message);
 	                
 	                item.sendMessage(JSON.toJSONString(details) );
-	                
-	                
-	            } catch (IOException e) {
+	                ***/
+	            	
+	            	 ServiceHandler handler = new ServiceHandler(item);
+	                 thread = new Thread(handler);
+	            	
+	            } catch (Exception e) {
 	                e.printStackTrace();
 	                continue;
 	            }
 	        }
+	        
+	        thread.start();
 	    }
 
 	    /**

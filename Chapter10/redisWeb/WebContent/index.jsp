@@ -51,7 +51,7 @@
 	
 	function loopData() {
 		send();
-		setTimeout('loopData()', 1000 * 5 );
+		//setTimeout('loopData()', 1000 * 5 );
 
 	}
 	
@@ -184,7 +184,7 @@
 	} ];
 
 	var layout2 = { 
-		title : 'Redis Key的实时数量',
+		title : 'Redis Key的实时数量(单位:个)',
 	};
 
 	Plotly.newPlot('indexDiv2', data2, layout2);
