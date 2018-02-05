@@ -46,18 +46,26 @@
 	websocket.onopen = function() {
 		setMessageInnerHTML("WebSocket连接成功");
 
+		loopData();
+	}
+	
+	function loopData() {
+		send();
+		setTimeout('loopData()', 1000 * 5 );
+
+	}
+	
+	window.onload = function(){
+		
 		//loopData();
 	}
 
-	function loopData() {
-		send();
-		setTimeout('loopData()', 5000);
-
-	}
+	
 
 	//接收到消息的回调方法
 	websocket.onmessage = function(event) {
-		setMessageInnerHTML(event.data);
+		//setMessageInnerHTML(event.data);
+		
 		console.log(event.data);
 	
 		jsonObj = JSON.parse(event.data);
@@ -94,8 +102,20 @@
 				//data1.x = x1;
 				//data1.y = y1;
 				
-				data1.x[data1.x.length] = jsonObj[i].date;
-				data1.y[data1.y.length] = jsonObj[i].value;
+				if(data1.x.length < 10 ){
+					data1.x[data1.x.length] = jsonObj[i].date;
+					data1.y[data1.y.length] = jsonObj[i].value;	
+					
+				}else{
+					data1.x.splice(0,1);
+					data1.y.splice(0,1);
+					
+					data1.x[data1.x.length] = jsonObj[i].date;
+					data1.y[data1.y.length] = jsonObj[i].value;
+						
+				}
+				
+				
 				
 			} else if (jsonObj[i].key == 'keys') {
 
@@ -139,7 +159,8 @@
 
 	//发送消息
 	function send() {
-		var message = document.getElementById('text').value;
+		//var message = document.getElementById('text').value;
+		var message = Math.floor(100000 * Math.random() );
 		websocket.send(message);
 	}
 	/***
