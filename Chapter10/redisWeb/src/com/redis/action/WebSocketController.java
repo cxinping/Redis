@@ -56,6 +56,10 @@ public class WebSocketController {
 	        webSocketSet.remove(this); // 从set中删除
 	        subOnlineCount(); // 在线数减1
 	        System.out.println("有一连接关闭！当前在线人数为" + getOnlineCount());
+	        
+	        if(getOnlineCount() == 0){
+	        	closeQueryThread();
+	        }
 	    }
 
 	    private Thread queryThread = null;
@@ -134,14 +138,15 @@ public class WebSocketController {
 	     * @throws IOException
 	     */
 	    public void sendMessage(String message) throws IOException {
-	        this.session.getBasicRemote().sendText(message);
+	    	if(this.session.isOpen())
+	    		this.session.getBasicRemote().sendText(message);
 	    }
 
 	    public static synchronized int getOnlineCount() {
 	        return onlineCount;
 	    }
 
-	public static synchronized void addOnlineCount() {
+	    public static synchronized void addOnlineCount() {
 	    	WebSocketController.onlineCount++;
 	    }
 

@@ -40,11 +40,10 @@ public class RedisServiceHandler implements Runnable {
     		try {
 				webSocket.sendMessage(JSON.toJSONString(details) );
 				
-				Thread.sleep(1000*5);
+				Thread.sleep(1000 * 5);
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
