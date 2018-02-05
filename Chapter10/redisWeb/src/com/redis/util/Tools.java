@@ -12,9 +12,8 @@ public class Tools {
 		return format.format(now);
 	}
 	
-    public static String setMBSize(int size) {  
-        //获取到的size为：1705230  
-        int MB = 1024 * 1024;//定义MB的计算常量  
+    public static String transByteToMBSize(int size) {  
+        int MB = 1024 * 1024 ;//定义MB的计算常量  
         DecimalFormat df = new DecimalFormat("0.00");//格式化小数  
         String resultSize = "";  
         resultSize = df.format(size / (float) MB) ;
@@ -22,7 +21,7 @@ public class Tools {
     }  
     
 	public static void main(String[] args) {
-		System.out.println( Tools.setMBSize(731520));
+		System.out.println( Tools.transByteToMBSize(731520));
 
 	}
 

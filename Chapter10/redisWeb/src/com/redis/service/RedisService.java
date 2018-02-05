@@ -60,7 +60,8 @@ public class RedisService {
 					String value = str[1].trim();
 					rif.setKey(key);
 					//由 Redis 分配器分配的内存总量，以字节（byte）为单位，转换为M 
-					rif.setValue(Tools.setMBSize(Integer.valueOf(value)));
+					//rif.setValue(value);
+					rif.setValue(Tools.transByteToMBSize(Integer.valueOf(value)));
 					rif.setDate(Tools.getCurrntTime());
 
 					ridList.add(rif);
