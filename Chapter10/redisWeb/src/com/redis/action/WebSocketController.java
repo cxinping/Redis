@@ -78,8 +78,6 @@ public class WebSocketController {
 	    public void onMessage(String message, Session session) {
 	        System.out.println("来自客户端的消息:" + message);
 	        
-	       
-            
 	        // 群发消息
 	        for (WebSocketController item : webSocketSet) {
 	            try {
@@ -103,14 +101,16 @@ public class WebSocketController {
 	                item.sendMessage(JSON.toJSONString(details) );
 	                ***/
 	            	
-	            	 RedisServiceHandler handler = new RedisServiceHandler(item);
-	            	 queryThread = new Thread(handler);
+	            	
 	            	
 	            } catch (Exception e) {
 	                e.printStackTrace();
 	                continue;
 	            }
 	        }
+	        
+	        RedisServiceHandler handler = new RedisServiceHandler(this);
+	        queryThread = new Thread(handler);
 	        
 	        queryThread.start();
 	    }
