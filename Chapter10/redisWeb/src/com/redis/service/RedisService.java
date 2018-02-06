@@ -105,16 +105,11 @@ public class RedisService {
 						rif.setValue(map.get("keys") + "");
 						rif.setDate(Tools.getCurrntTime());
 					}
-
 				}else{
 					rif.setKey("keys");
 					rif.setValue(map.get("keys") + "");
 					rif.setDate(Tools.getCurrntTime());
 				}
-				
-				
-				
-
 			}
 		} 
 		return rif;

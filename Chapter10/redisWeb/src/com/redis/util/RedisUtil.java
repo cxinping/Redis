@@ -132,7 +132,7 @@ public class RedisUtil {
 
 	public static void main(String[] args) {
 		RedisUtil util = new RedisUtil();
-		System.out.println(util.getRedisInfo());
+		System.out.println(util.dbSize());
 
 	}
 
