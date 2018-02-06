@@ -4,6 +4,10 @@ package com.redis.entity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Redis消息的详细信息
+ * 
+ * */
 public class RedisInfoDetail {
 	private static Map<String, String> map = new HashMap<String, String>();
 	
@@ -26,11 +30,9 @@ public class RedisInfoDetail {
 		map.put("client_longest_input_buf", "当前连接的客户端当中，最大输入缓存");
 		map.put("blocked_clients", "正在等待阻塞命令（BLPOP、BRPOP、BRPOPLPUSH）的客户端的数量");
 		
-		//map.put("used_memory", "由 Redis 分配器分配的内存总量，以字节（byte）为单位");
 		map.put("used_memory", "由 Redis 分配器分配的内存总量");
-		
 		map.put("keys", "Redis key的实时数量");
-		
+
 		map.put("used_memory_human", "以人类可读的格式返回 Redis 分配的内存总量");
 		map.put("used_memory_rss", "从操作系统的角度，返回 Redis 已分配的内存总量（俗称常驻集大小）。这个值和 top 、 ps 等命令的输出一致");
 		map.put("used_memory_peak", " Redis 的内存消耗峰值(以字节为单位)");

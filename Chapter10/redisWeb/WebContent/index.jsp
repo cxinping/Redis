@@ -57,6 +57,7 @@
 		return x.replace(/^\s+|\s+$/gm, '');
 	}
 
+	// 创建曲线图1的数据源
 	var data1 = {};
 	data1.type = 'scatter';
 	data1.name = '内存占用';
@@ -65,6 +66,7 @@
 	data1.y = [];
 	datas1.push(data1);
 
+	// 创建曲线图2的数据源
 	var data2 = {};
 	data2.type = 'scatter';
 	data2.name = 'keys数量';
@@ -79,6 +81,7 @@
 			//console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
+				// 使曲线图中最多显示18个点
 				if (data1.x.length < 18) {
 					data1.x[data1.x.length] = jsonObj[i].date;
 					data1.y[data1.y.length] = jsonObj[i].value;
