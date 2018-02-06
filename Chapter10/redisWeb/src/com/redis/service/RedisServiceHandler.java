@@ -18,7 +18,6 @@ public class RedisServiceHandler implements Runnable {
 	}
 	
 	public void run() {
-
 		
 		while(true){
 			RedisService redisService = new RedisService();
@@ -31,13 +30,9 @@ public class RedisServiceHandler implements Runnable {
     		List<RedisInfoDetail> details = new ArrayList<RedisInfoDetail>(); 
     		details.add(memoryDetail );
     		details.add(keysDetail );
-    		//System.out.println(JSON.toJSONString( details));
-    		//String keysVal = JSON.toJSONString(redisService.getKeysValue(info));
-    		//System.out.println(keysVal);
-        	
-            //item.sendMessage("The Server received a message =>"+message);
             
     		try {
+    			//群发消息
 				webSocket.sendMessage(JSON.toJSONString(details) );
 				
 				//每10秒发送一次消息，以便页面更新数据

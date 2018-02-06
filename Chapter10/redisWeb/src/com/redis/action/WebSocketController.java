@@ -76,40 +76,8 @@ public class WebSocketController {
 	    public void onMessage(String message, Session session) {
 	        System.out.println("来自客户端的消息:" + message);
 	        
-	        // 群发消息
-	        for (WebSocketController item : webSocketSet) {
-	            try {
-	            	/***
-	            	RedisService redisService = new RedisService();
-	        		RedisUtil redisUtil = new RedisUtil();
-	        		String info = redisUtil.getRedisInfo();
-	        		// redis 内存实时占用情况
-	        		RedisInfoDetail memoryDetail = redisService.getRedisInfo(info, "used_memory_human");
-	        		// redis key的实时数量
-	        		RedisInfoDetail keysDetail = redisService.getKeysValue(info);
-	        		List<RedisInfoDetail> details = new ArrayList<RedisInfoDetail>(); 
-	        		details.add(memoryDetail );
-	        		details.add(keysDetail );
-	        		//System.out.println(JSON.toJSONString( details));
-	        		//String keysVal = JSON.toJSONString(redisService.getKeysValue(info));
-	        		//System.out.println(keysVal);
-	            	
-	                //item.sendMessage("The Server received a message =>"+message);
-	                
-	                item.sendMessage(JSON.toJSONString(details) );
-	                ***/
-	            	
-	            	
-	            	
-	            } catch (Exception e) {
-	                e.printStackTrace();
-	                continue;
-	            }
-	        }
-	        
 	        RedisServiceHandler handler = new RedisServiceHandler(this);
 	        queryThread = new Thread(handler);
-	        
 	        queryThread.start();
 	    }
 
