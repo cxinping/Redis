@@ -4,17 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSON;
-import com.redis.entity.Operate;
 import com.redis.entity.RedisInfoDetail;
 import com.redis.util.RedisUtil;
 import com.redis.util.Tools;
-
-import redis.clients.util.Slowlog;
 
 public class RedisService {
 
@@ -115,53 +110,7 @@ public class RedisService {
 		return rif;
 	}
 
-	// 获取redis日志列表
-	public List<Operate> getLogs(long entries) {
-		List<Slowlog> list = redisUtil.getLogs(entries);
-		List<Operate> opList = null;
-		Operate op = null;
-		boolean flag = false;
-		if (list != null && list.size() > 0) {
-			opList = new LinkedList<Operate>();
-			for (Slowlog sl : list) {
-				String args = JSON.toJSONString(sl.getArgs());
-				if (args.equals("[\"PING\"]") || args.equals("[\"SLOWLOG\",\"get\"]") || args.equals("[\"DBSIZE\"]")
-						|| args.equals("[\"INFO\"]")) {
-					continue;
-				}
-				op = new Operate();
-				flag = true;
-				op.setId(sl.getId());
-				op.setExecuteTime(getDateStr(sl.getTimeStamp() * 1000));
-				op.setUsedTime(sl.getExecutionTime() / 1000.0 + "ms");
-				op.setArgs(args);
-				opList.add(op);
-			}
-		}
-		if (flag)
-			return opList;
-		else
-			return null;
-	}
 
-	// 获取日志总数
-	public Long getLogLen() {
-		return redisUtil.getLogsLen();
-	}
-
-	// 清空日志
-	public String logEmpty() {
-		return redisUtil.logEmpty();
-	}
-
-	// 获取当前数据库中key的数量
-	public Map<String, Object> getKeysSize() {
-		long dbSize = redisUtil.dbSize();
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("create_time", new Date().getTime());
-		map.put("dbSize", dbSize);
-		return map;
-	}
 
 	// 获取当前redis使用内存大小情况
 	public Map<String, Object> getMemeryInfo() {
@@ -190,12 +139,6 @@ public class RedisService {
 		List list = service.getRedisInfo();
 		//System.out.println(list);
 		
-		List<Operate> operates = service.getLogs(100);
-		
-		for(int i=0;i<operates.size();i++){
-			Operate operate = operates.get(i);
-			System.out.println(operate);	
-		}
 	}
 
 }

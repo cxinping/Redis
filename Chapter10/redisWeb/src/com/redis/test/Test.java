@@ -1,8 +1,5 @@
 package com.redis.test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.alibaba.fastjson.JSON;
 import com.redis.service.RedisService;
 import com.redis.util.RedisUtil;
