@@ -134,6 +134,6 @@ public class RedisUtil {
 		RedisUtil util = new RedisUtil();
 		System.out.println(util.dbSize());
 
-	}
+	} 
 
 }

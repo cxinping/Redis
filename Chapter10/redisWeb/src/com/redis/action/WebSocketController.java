@@ -2,8 +2,6 @@ package com.redis.action;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.websocket.OnClose;
@@ -13,11 +11,7 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import com.alibaba.fastjson.JSON;
-import com.redis.entity.RedisInfoDetail;
-import com.redis.service.RedisService;
 import com.redis.service.RedisServiceHandler;
-import com.redis.util.RedisUtil;
 
 /**
  * @ServerEndpoint 注解是一个类层次的注解，它的功能主要是将目前的类定义成一个websocket服务器端,
