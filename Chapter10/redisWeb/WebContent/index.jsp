@@ -40,21 +40,17 @@
 	//连接成功建立的回调方法
 	websocket.onopen = function() {
 		setMessageInnerHTML("WebSocket连接成功");
-
 		send();
 	}
 
 	//接收到消息的回调方法
 	websocket.onmessage = function(event) {
 		//setMessageInnerHTML(event.data);
-
 		//console.log(event.data);
 
 		jsonObj = JSON.parse(event.data);
 		//console.log(jsonObj);
-
 		render(jsonObj);
-
 	}
 
 	function trim(x) {
@@ -125,7 +121,6 @@
 		};
 
 		Plotly.newPlot('indexDiv2', datas2, layout2);
-
 	}
 
 	//连接关闭的回调方法
@@ -150,7 +145,6 @@
 
 	//发送消息
 	function send() {
-		//var message = document.getElementById('text').value;
 		var message = Math.floor(100000 * Math.random());
 		websocket.send(message);
 	}
