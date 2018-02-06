@@ -75,10 +75,10 @@ public class RedisService {
 	public RedisInfoDetail getKeysValue(String redisInfo) {
 		// 获取redis服务器信息
 		String info = redisUtil.getRedisInfo();
-		List<RedisInfoDetail> ridList = new ArrayList<RedisInfoDetail>();
+		//List<RedisInfoDetail> ridList = new ArrayList<RedisInfoDetail>();
 		String[] strs = info.split("\n");
 		RedisInfoDetail rif = new RedisInfoDetail();
-		String keys = "keys";
+		//String keys = "keys";
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("keys", 0);
 		

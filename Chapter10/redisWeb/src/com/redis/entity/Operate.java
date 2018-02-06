@@ -49,6 +49,4 @@ public class Operate {
 		return "Operate [id=" + id + ", executeTime=" + executeTime + ", usedTime=" + usedTime + ", args=" + args + "]";
 	}
 
-	
-
 }

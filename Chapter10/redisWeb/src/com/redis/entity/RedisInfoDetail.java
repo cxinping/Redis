@@ -41,11 +41,12 @@ public class RedisInfoDetail {
 	}
 	
 	private String key;
+	
 	private String value;
+	// 描述信息
 	private String desctiption;
-	private String date;
-	
-	
+	// 查询的时间戳
+	private String date; 
 	
 	public String getDate() {
 		return date;
@@ -72,9 +73,10 @@ public class RedisInfoDetail {
 	public void setDesctiption(String desctiption) {
 		this.desctiption = desctiption;
 	}
-	@Override
+
 	public String toString() {
-		return "RedisInfoDetail [key=" + key + ", value=" + value
-				+ ", desctiption=" + desctiption + "]";
+		return "RedisInfoDetail [key=" + key + ", value=" + value + ", desctiption=" + desctiption + ", date=" + date
+				+ "]";
 	}
+	
 }
