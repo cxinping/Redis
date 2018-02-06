@@ -129,15 +129,10 @@ public class RedisService {
 		return map;
 	}
 
-	private String getDateStr(long timeStmp) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return dateFormat.format(new Date(timeStmp));
-	}
-
 	public static void main(String[] args) {
 		RedisService service = new RedisService();
-		List list = service.getRedisInfo();
-		//System.out.println(list);
+		List<RedisInfoDetail>  list = service.getRedisInfo();
+		System.out.println(list);
 		
 	}
 
