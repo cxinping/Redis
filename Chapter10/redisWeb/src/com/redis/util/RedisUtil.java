@@ -1,12 +1,9 @@
 package com.redis.util;
 
-import java.util.List;
-
 import redis.clients.jedis.Client;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-import redis.clients.util.Slowlog;
 
 public class RedisUtil {
 	private static JedisPool jedisPool;
