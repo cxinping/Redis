@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.domain.User;
@@ -38,13 +39,21 @@ public class UserController {
 	
 	/**
 	 * 添加用户
+	
+	 * @ResponseBody
+	 * @RequestBody User user
 	 * 
-	 */
-	@RequestMapping(value = "/v1/user/add", method = RequestMethod.POST)
-	public Map addUser(@RequestBody User user) {
-		System.out.println("--- POST addUser() redisService=" + redisService);
-		user.setId("user_"+ System.currentTimeMillis());
-		logger.info(user);
+	 * 
+	 * 后端通过 @RequestBody 直接将json字符串绑定到对应的model上
+	 */	
+	@RequestMapping(value = "/v1/user/add", consumes = "application/json" ,method = RequestMethod.POST )
+	public  Map addUser(@RequestBody  User user) {
+		logger.info("--- POST addUser() param=" );
+		logger.info("111 user" + user);
+		
+		user.setId("user:"+ System.currentTimeMillis());
+		
+		
 	//	userService.addUser(user);
 
 	 //redisService.set(user.getId(), user);
@@ -53,9 +62,13 @@ public class UserController {
 //		ValueOperations<String, User> operations=redisTemplate.opsForValue();
 //	    operations.set("com.neox", user);
 	        
-	 	redisTemplate.opsForList().rightPush("user", user);
-	        
-		Map result = new HashMap<>();
+//		try{
+//			redisTemplate.opsForList().rightPush("user", user);
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+	 	        
+		Map result = new HashMap();
 		result.put("result", true);
 		result.put("timestamp", System.currentTimeMillis());
 		return result;
@@ -66,13 +79,22 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/users", method = RequestMethod.GET)
-	public List queryUser(){
+	public Map queryUser(){
 		logger.info("**** queryUser");
 		
 		//redisTemplate.opsForList().set("user", 2, "newTwo");
-        List<User> list4 = redisTemplate.opsForList().range("user", 0, -1);
+        List<User> list = redisTemplate.opsForList().range("user", 0, -1);
         
-		return list4;
+        List list2 = new ArrayList();
+        Map map1 = new HashMap();
+        map1.put("id", 1);
+        map1.put("name", "wangwu");
+        list2.add(map1);
+        
+        Map rows = new HashMap();
+        rows.put("total", list.size());
+        rows.put("rows", list);
+		return rows;
 	}
 	
 	/**
@@ -93,32 +115,30 @@ public class UserController {
 				break;
 			}
 		}
-		
 
 		Map result = new HashMap<>();
-		result.put("result", true);
+		result.put("success", true);
 		result.put("removeCount", removeCount);
 		result.put("timestamp", System.currentTimeMillis());
 		return result;
-		
 	}
 	
 	/**
 	 * 修改用户
 	 * 
 	 */
-	@RequestMapping(value = "/v1/user/{userId}", method = RequestMethod.POST)
-	public Map updateUser(@PathVariable("userId") String userId){
+	@RequestMapping(value = "/v1/user/update", method = RequestMethod.POST)
+	public Map updateUser(@RequestBody User user){
 		
-		logger.info("**** updateUser");
+		logger.info("**** updateUser user="+user);
 		
 		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
 		Long removeCount = null;
 		for(int i=0,j=list.size();i<j;i++){
-			User user = list.get(i);
-			user.setUserName("lisi");
-			logger.info(user);
-			if( user.getId().equals(userId )){
+			User getUser = list.get(i);
+//			user.setUserName("lisi2222");
+//			logger.info(user);
+			if( getUser.getId().equals(user.getId() )){
 				redisTemplate.opsForList().set("user", i, user);	
 				break;
 			}
@@ -130,30 +150,5 @@ public class UserController {
 		return result;
 	}
 	
-
-	@RequestMapping("/queryUser")
-	public Map getUser() {
-		Map user = new HashMap();
-		user.put("name", "wangwu");
-		user.put("age", 20);
-		user.put("timestamp", System.currentTimeMillis());
-		return user;
-	}
-
-	@RequestMapping("/queryUsers")
-	public List getUsers() {
-		List list = new ArrayList();
-		Map user1 = new HashMap();
-		user1.put("name", "wangwu");
-		user1.put("age", 20);
-
-		Map user2 = new HashMap();
-		user2.put("name", "lisi");
-		user2.put("age", 25);
-
-		list.add(user1);
-		list.add(user2);
-		return list;
-	}
 
 }
