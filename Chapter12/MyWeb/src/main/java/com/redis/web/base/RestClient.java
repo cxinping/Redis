@@ -27,11 +27,6 @@ import com.redis.web.controller.RestHandle;
 
 public class RestClient {
 	private Logger logger = LoggerFactory.getLogger(RestHandle.class);
-//	private HttpHost host;
-	
-//	public RestClient(String ip,int port) {
-//		host = new HttpHost(ip, port, null);
-//	}
 
 	public HttpResponse getResponse(HttpUriRequest request){
 		DefaultHttpClient client = new DefaultHttpClient();

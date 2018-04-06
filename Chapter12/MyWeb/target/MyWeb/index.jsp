@@ -35,7 +35,7 @@
 </head>
 <body>
 	
-	<table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:250px"
+	<table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:350px"
 			
 			toolbar="#toolbar" pagination="true"
 			rownumbers="true" fitColumns="true" singleSelect="true">

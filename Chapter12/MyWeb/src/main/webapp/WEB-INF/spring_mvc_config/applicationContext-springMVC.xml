@@ -49,13 +49,14 @@
         </property>
     </bean>
     
-    <mvc:view-controller path="/" view-name="redirect:/index.jsp" /> 
+    <!-- <mvc:view-controller path="/" view-name="redirect:/index.jsp" />  -->
     <context:annotation-config/>    
     
+    <!--  spring mvc 中对静态资源的访问配置  -->
      <mvc:resources mapping="/img/**" location="/img/" cache-period="31556926"/>  
     <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>  
     <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/> 
     <context:property-placeholder location="classpath*:app.properties" ignore-unresolvable="true"/>
     
-     <mvc:default-servlet-handler/> 
+  <!--    <mvc:default-servlet-handler/>  -->
 </beans>   
