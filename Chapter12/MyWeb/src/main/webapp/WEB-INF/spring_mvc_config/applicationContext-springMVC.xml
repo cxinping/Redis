@@ -22,6 +22,17 @@
   
     <!-- 自动扫描的包名 -->  
     <context:component-scan base-package="com.redis.web" ></context:component-scan>  
-      
-   
+    
+    <!-- 默认的注解映射的支持 -->  
+    <mvc:annotation-driven />  
+
+    <mvc:view-controller path="/" view-name="redirect:/index.jsp" /> 
+    <context:annotation-config/>    
+    
+    <mvc:resources mapping="/img/**" location="/img/" cache-period="31556926"/>  
+    <mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>  
+    <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
+    <context:property-placeholder location="classpath*:app.properties" ignore-unresolvable="true"/>
+    
+    <mvc:default-servlet-handler/>
 </beans>   

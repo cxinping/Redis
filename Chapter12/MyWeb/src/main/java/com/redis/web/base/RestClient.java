@@ -126,7 +126,7 @@ public class RestClient {
 	        String key = (String) headerNames.nextElement();
 	        String value = request.getHeader(key);
 	        if (!"content-length".equals(key.toLowerCase())){
-	        	//logger.info("set header : {} = {}",key,value);
+	        	logger.info("set header : {} = {}",key,value);
 	        	get.setHeader(key, value);
 	        }	
 	    }

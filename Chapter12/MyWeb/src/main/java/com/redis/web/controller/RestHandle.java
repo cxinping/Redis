@@ -1,6 +1,5 @@
 package com.redis.web.controller;
 
-
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.redis.web.base.RestClient;
 
-
-
 @Controller
 public class RestHandle {
-	
 	private Logger logger = LoggerFactory.getLogger(RestHandle.class);
 	
 	private String restBaseUrl ="http://127.0.0.1:80";
@@ -30,15 +26,13 @@ public class RestHandle {
 		RestClient rest = new RestClient();
 		String url = null;
 		String authToken = null;
-		if (request.getSession() != null && request.getSession().getAttribute("authToken")!= null) {
-			authToken = request.getSession().getAttribute("authToken").toString() ;
-		}
 		url =  request.getRequestURI();
 		url += "?" + "&clientip="+request.getRemoteAddr();
 		if (request.getQueryString() != null) {
 			url += "&" + request.getQueryString();
 		}
-		logger.debug("authToken:{}",authToken);
+		
+		
 		if  (request.getMethod().toLowerCase().equals("get")){
 			logger.debug("method:get url:{}",restBaseUrl + url);
 			 rest.get(restBaseUrl + url,authToken,request,response);	
