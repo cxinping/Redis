@@ -22,20 +22,16 @@ public class RestHandle {
 
 	@RequestMapping(value={"/user/api/**"})
 	public void handler(HttpServletRequest request,@RequestBody String json,HttpServletResponse response) throws ParseException, IOException {
-
 		RestClient rest = new RestClient();
 		String url = null;
-		String authToken = null;
 		url =  request.getRequestURI();
 //		url += "?" + "&clientip="+request.getRemoteAddr();
 //		if (request.getQueryString() != null) {
 //			url += "&" + request.getQueryString();
 //		}
-//		
 
 		String contextPath = request.getContextPath();
 		int beginIdx = url.indexOf(contextPath) + contextPath.length();
-	
 		
 		System.out.println("***111 url="+url + ", json="+json + ",contextPath="+contextPath);
 		url = url.substring(beginIdx, url.length());
@@ -43,20 +39,20 @@ public class RestHandle {
 		
 		if  (request.getMethod().toLowerCase().equals("get")){
 			logger.debug("* method:get url:{}",restBaseUrl + url);
-			 rest.get(restBaseUrl + url,authToken,request,response);	
+			 rest.get(restBaseUrl + url ,request,response);	
 		}	
 		if  (request.getMethod().toLowerCase().equals("post")){
 			logger.debug("method:post url:{}  body:{}",restBaseUrl + url,json);
-			rest.post(restBaseUrl + url,json,authToken,request,response);
+			rest.post(restBaseUrl + url,json ,request,response);
 		}
 		if  (request.getMethod().toLowerCase().equals("put")){
 			
 			logger.debug("method:put url:{}  body:{}",restBaseUrl + url,json);
-			rest.put(restBaseUrl + url,json,authToken,request,response);
+			rest.put(restBaseUrl + url,json ,request,response);
 		}
 		if  (request.getMethod().toLowerCase().equals("delete")){
 			logger.debug("method:delete url:{}",restBaseUrl + url);
-			rest.delete(restBaseUrl + url,authToken,request,response);
+			rest.delete(restBaseUrl + url ,request,response);
 		}
 		
 	}	

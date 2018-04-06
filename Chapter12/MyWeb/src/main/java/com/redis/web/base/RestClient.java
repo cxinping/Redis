@@ -116,11 +116,8 @@ public class RestClient {
 		return getResponseAsString(get);
 	}
 	
-	public void get(String url,String authToken,HttpServletRequest request,HttpServletResponse response){
+	public void get(String url ,HttpServletRequest request,HttpServletResponse response){
 		HttpGet get = new HttpGet(url);
-		if (authToken != null) {
-			get.setHeader("authToken", authToken);
-		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
 	        String key = (String) headerNames.nextElement();
@@ -134,19 +131,13 @@ public class RestClient {
 	}
 	
 
-	public String delete(String url,String authToken){
+	public String delete(String url ){
 		HttpDelete delete = new HttpDelete(url);
-		if (authToken != null) {
-			delete.setHeader("authToken", authToken);
-		}
 		return getResponseAsString(delete);
 	}
 	
-	public void delete(String url,String authToken,HttpServletRequest request,HttpServletResponse response){
+	public void delete(String url ,HttpServletRequest request,HttpServletResponse response){
 		HttpDelete delete = new HttpDelete(url);
-		if (authToken != null) {
-			delete.setHeader("authToken", authToken);
-		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
 	        String key = (String) headerNames.nextElement();
@@ -159,13 +150,10 @@ public class RestClient {
 		getResponseAsStream(delete,response);
 	}
 	
-	public String post(String url,String json,String authToken,HttpServletRequest request){
+	public String post(String url,String json,HttpServletRequest request){
 		HttpPost post = new HttpPost(url);
 		if (json != null ) {
 			post.setEntity(new StringEntity(json,ContentType.APPLICATION_JSON));
-		}
-		if (authToken != null) {
-			post.setHeader("authToken", authToken);
 		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
@@ -180,14 +168,11 @@ public class RestClient {
 		
 	}
 	
-	public void post(String url,String json,String authToken
+	public void post(String url,String json
 			,HttpServletRequest request,HttpServletResponse response){
 		HttpPost post = new HttpPost(url);
 		if (json != null ) {
 			post.setEntity(new StringEntity(json,ContentType.APPLICATION_JSON));
-		}
-		if (authToken != null) {
-			post.setHeader("authToken", authToken);
 		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
@@ -201,15 +186,12 @@ public class RestClient {
 		getResponseAsStream(post,response);
 	}
 	
-	public void put(String url,String json,String authToken
+	public void put(String url,String json
 			,HttpServletRequest request,HttpServletResponse response){
 		HttpPut put = new HttpPut(url);
 		
 		if (json != null ) {
 			put.setEntity(new StringEntity(json,ContentType.APPLICATION_JSON));
-		}
-		if (authToken != null) {
-			put.setHeader("authToken", authToken);
 		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
@@ -224,14 +206,11 @@ public class RestClient {
 		
 	}
 	
-	public String put(String url,String json,String authToken,HttpServletRequest request){
+	public String put(String url,String json,HttpServletRequest request){
 		HttpPut put = new HttpPut(url);
 		
 		if (json != null ) {
 			put.setEntity(new StringEntity(json,ContentType.APPLICATION_JSON));
-		}
-		if (authToken != null) {
-			put.setHeader("authToken", authToken);
 		}
 		Enumeration headerNames = request.getHeaderNames();
 	    while (headerNames.hasMoreElements()) {
