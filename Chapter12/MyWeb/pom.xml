@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MyWeb Maven Webapp</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<yun.version>1.0-dev</yun.version>
@@ -36,7 +36,7 @@
 		<activiti.version>5.16</activiti.version>
 		<pagehelper.version>3.2.3</pagehelper.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -72,14 +72,14 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.apache.httpcomponents</groupId>
-		    <artifactId>httpclient</artifactId>
-		    <version>4.5.5</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.5</version>
 		</dependency>
 
-<!--spring start -->
+		<!--spring start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -144,12 +144,12 @@
 		</dependency>
 		<!--spring end -->
 
-	<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-<!--log start -->
+		<!--log start -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -161,17 +161,35 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-		<dependency>  
-		    <groupId>org.slf4j</groupId>  
-		    <artifactId>slf4j-log4j12</artifactId>  
-		    <version>${slf4j.version}</version>  
-		</dependency> 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>apache-log4j-extras</artifactId>
 			<version>1.1</version>
 		</dependency>
 		<!--log end -->
+
+		<!--jackson start -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!--jackson end -->
 
 	</dependencies>
 	<build>
