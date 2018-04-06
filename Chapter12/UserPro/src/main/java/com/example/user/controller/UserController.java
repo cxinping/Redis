@@ -62,11 +62,11 @@ public class UserController {
 //		ValueOperations<String, User> operations=redisTemplate.opsForValue();
 //	    operations.set("com.neox", user);
 	        
-//		try{
-//			redisTemplate.opsForList().rightPush("user", user);
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
+		try{
+			redisTemplate.opsForList().rightPush("user", user);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	 	        
 		Map result = new HashMap();
 		result.put("result", true);
