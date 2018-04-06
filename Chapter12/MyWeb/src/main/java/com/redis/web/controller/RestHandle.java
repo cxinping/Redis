@@ -27,14 +27,22 @@ public class RestHandle {
 		String url = null;
 		String authToken = null;
 		url =  request.getRequestURI();
-		url += "?" + "&clientip="+request.getRemoteAddr();
-		if (request.getQueryString() != null) {
-			url += "&" + request.getQueryString();
-		}
+//		url += "?" + "&clientip="+request.getRemoteAddr();
+//		if (request.getQueryString() != null) {
+//			url += "&" + request.getQueryString();
+//		}
+//		
+
+		String contextPath = request.getContextPath();
+		int beginIdx = url.indexOf(contextPath) + contextPath.length();
+	
 		
+		System.out.println("***111 url="+url + ", json="+json + ",contextPath="+contextPath);
+		url = url.substring(beginIdx, url.length());
+		System.out.println("***222 url="+url);
 		
 		if  (request.getMethod().toLowerCase().equals("get")){
-			logger.debug("method:get url:{}",restBaseUrl + url);
+			logger.debug("* method:get url:{}",restBaseUrl + url);
 			 rest.get(restBaseUrl + url,authToken,request,response);	
 		}	
 		if  (request.getMethod().toLowerCase().equals("post")){
