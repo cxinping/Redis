@@ -78,6 +78,7 @@
 	</div>
 	<div id="dlg-buttons">
 		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="editUserAction()">修改</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
 	</div>
 	<script type="text/javascript" src="./js/easyui/jquery.min.js"></script>
@@ -85,7 +86,7 @@
 	<script type="text/javascript">
 		var url;
 		function newUser(){
-			$('#dlg').dialog('open').dialog('setTitle','New User');
+			$('#dlg').dialog('open').dialog('setTitle','添加用户');
 			$('#fm').form('clear');
 		}
 	
@@ -156,10 +157,55 @@
 						getUsers();
 					}
 				});
-			 
-			 
 		}
-		
+			
+	   
+			
+		function editUser(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$('#dlg').dialog('open').dialog('setTitle','修改用户');
+				/**
+				$('#fm').form('load',row);
+				url = 'update_user.php?id='+row.id;
+				*/
+				$('#fm').form('load',row);
+				//console.log(  row.id );
+			}
+		}	
+			
+		 function editUserAction(){
+				var row = $('#dg').datagrid('getSelected');
+				var user = {
+			            id :  row.id,
+						userName:$("#userName").val(),
+			            age:$("#age").val()
+			        };
+				console.log( 'editUserAction='+JSON.stringify(user) );
+				
+				$.ajax({
+					    url:  "user/api/users/v1/user/update",	
+						type : "post" ,
+						contentType: "application/json",
+			            dataType: "json",					
+						data: JSON.stringify(user) ,						
+						error : function(json) {
+							//alert(  json  );
+							console.log( json );
+							
+						},
+						success : function(data) {
+							$('#dlg').dialog('close');		// close the dialog
+							//console.log(JSON.stringify(data))
+						 
+							getUsers();
+						}
+					});
+		 
+		 }
+		 
+		 
+		 
 		function removeUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
