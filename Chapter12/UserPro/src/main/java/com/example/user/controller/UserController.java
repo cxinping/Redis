@@ -85,12 +85,6 @@ public class UserController {
 		//redisTemplate.opsForList().set("user", 2, "newTwo");
         List<User> list = redisTemplate.opsForList().range("user", 0, -1);
         
-        List list2 = new ArrayList();
-        Map map1 = new HashMap();
-        map1.put("id", 1);
-        map1.put("name", "wangwu");
-        list2.add(map1);
-        
         Map rows = new HashMap();
         rows.put("total", list.size());
         rows.put("rows", list);
