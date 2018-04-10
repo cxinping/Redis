@@ -49,7 +49,7 @@ public class UserController {
 	@RequestMapping(value = "/v1/user/add", consumes = "application/json" ,method = RequestMethod.POST )
 	public  Map addUser(@RequestBody  User user) {
 		logger.info("--- POST addUser() param=" );
-		logger.info("111 user" + user);
+		logger.info("*** user" + user);
 		
 		user.setId("user:"+ System.currentTimeMillis());
 		
@@ -106,6 +106,8 @@ public class UserController {
 			logger.info(user);
 			if( user.getId().equals(userId )){
 				removeCount = redisTemplate.opsForList().remove("user", i, user);	
+				logger.info("**** removeCount="+removeCount);
+				
 				break;
 			}
 		}
@@ -122,8 +124,7 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/user/update", method = RequestMethod.POST)
-	public Map updateUser(@RequestBody User user){
-		
+	public Map updateUser(@RequestBody User user){		
 		logger.info("**** updateUser user="+user);
 		
 		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
