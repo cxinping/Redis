@@ -35,7 +35,7 @@
 </head>
 <body>
 	
-	<table id="dg" title="My Users" class="easyui-datagrid" style="width:700px;height:350px"
+	<table id="dg" title="用户列表" class="easyui-datagrid" style="width:700px;height:350px"
 			
 			toolbar="#toolbar" pagination="true"
 			rownumbers="true" fitColumns="true" singleSelect="true">
@@ -49,9 +49,9 @@
 		</thead>
 	</table>
 	<div id="toolbar">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">New User</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Edit User</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">Remove User</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">添加</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">修改</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removeUser()">删除</a>
 	</div>
 	
 	<div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px"
@@ -77,9 +77,9 @@
 		</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">Save</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">添加</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="editUserAction()">修改</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">Cancel</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>
 	<script type="text/javascript" src="./js/easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/easyui/jquery.easyui.min.js"></script>
