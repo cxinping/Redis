@@ -27,54 +27,9 @@ import com.redis.web.controller.RestHandle;
 public class RestClient {
 	private Logger logger = LoggerFactory.getLogger(RestHandle.class);
 
-	/**
-	 * 得到请求的响应值
-	 * 
-	 * */
-	public HttpResponse getResponse(HttpUriRequest request) {
-		//默认的http客户端
-		DefaultHttpClient client = new DefaultHttpClient();
-		HttpResponse httpResponse = null;
-		try {
-			httpResponse = client.execute(request);
-			//获得相应实体
-			HttpEntity entity = httpResponse.getEntity();
-			if (entity != null) {
-				return httpResponse;
-			}
-		} catch (Exception e) {
-			//关闭客户端连接
-			client.getConnectionManager().shutdown();
-			e.printStackTrace();
-		}
-		return httpResponse;
-	}
 
 	/**
-	 * 以字符串形式得到请求的响应值
-	 * 
-	 * */
-	public String getResponseAsString(HttpUriRequest request) {
-		//默认的http客户端
-		DefaultHttpClient client = new DefaultHttpClient();
-		try {
-			HttpResponse httpResponse = client.execute(request);
-			HttpEntity entity = httpResponse.getEntity();
-			if (entity != null) {
-				//设置字符集为utf-8
-				return EntityUtils.toString(entity, "UTF-8");
-			}
-		} catch (Exception e) {
-			//数据请求失败
-			e.printStackTrace();
-		} finally {
-			client.getConnectionManager().shutdown();
-		}
-		return null;
-	}
-
-	/**
-	 * 对请求的响应值以输出流的形式进行处理
+	 * 得到请求的响应值，并以输出流的形式进行处理
 	 * 
 	 * */
 	public void getResponseAsStream(HttpUriRequest request, HttpServletResponse response) {
@@ -94,40 +49,42 @@ public class RestClient {
 						value = value + ";charset=utf-8";
 						logger.info("reset Content-Type to add charset=utf-8");
 					}
-
 					logger.info("getResponseAsStream set header : {} = {}", key, value);
+					//设置响应头的信息
 					response.setHeader(key, value);
 				}
 			}
+			//得到请求的输出流
 			OutputStream os = response.getOutputStream();
 			if (entity != null && entity.isStreaming()) {
 				InputStream is = entity.getContent();
+				//设置缓存大小为 1024个字节
 				byte b[] = new byte[1024];
 				int j = 0;
 				while ((j = is.read(b)) != -1) {
 					os.write(b, 0, j);
 				}
+				//刷新输出流
 				os.flush();
+				//关闭输出流
 				os.close();
+				//关闭输入流
 				is.close();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			//关闭客户端连接
 			client.getConnectionManager().shutdown();
 		}
 	}
 
-	public String get(String url, String authToken) {
-		//设置请求方法get
-		HttpGet get = new HttpGet(url);
-		if (authToken != null) {
-			get.setHeader("authToken", authToken);
-		}
-		return getResponseAsString(get);
-	}
-
+	/**
+	 * 执行http的get请求
+	 * 
+	 * */
 	public void get(String url, HttpServletRequest request, HttpServletResponse response) {
+		// 设置请求方法get
 		HttpGet get = new HttpGet(url);
 		Enumeration headerNames = request.getHeaderNames();
 		while (headerNames.hasMoreElements()) {
@@ -135,18 +92,17 @@ public class RestClient {
 			String value = request.getHeader(key);
 			if (!"content-length".equals(key.toLowerCase())) {
 				logger.info("set header : {} = {}", key, value);
+				//设置请求头的信息
 				get.setHeader(key, value);
 			}
 		}
 		getResponseAsStream(get, response);
 	}
 
-	public String delete(String url) {
-		// 设置请求方法delete
-		HttpDelete delete = new HttpDelete(url);
-		return getResponseAsString(delete);
-	}
-
+	/**
+	 * 执行http的delete请求
+	 * 
+	 * */
 	public void delete(String url, HttpServletRequest request, HttpServletResponse response) {
 		// 设置请求方法delete
 		HttpDelete delete = new HttpDelete(url);
@@ -163,24 +119,10 @@ public class RestClient {
 		getResponseAsStream(delete, response);
 	}
 
-	public String post(String url, String json, HttpServletRequest request) {
-		// 设置请求方法post
-		HttpPost post = new HttpPost(url);
-		if (json != null) {
-			post.setEntity(new StringEntity(json, ContentType.APPLICATION_JSON));
-		}
-		Enumeration headerNames = request.getHeaderNames();
-		while (headerNames.hasMoreElements()) {
-			String key = (String) headerNames.nextElement();
-			String value = request.getHeader(key);
-			if (!"content-length".equals(key.toLowerCase())) {
-				logger.info("set header : {} = {}", key, value);
-				post.setHeader(key, value);
-			}
-		}
-		return getResponseAsString(post);
-	}
-
+	/**
+	 * 执行http的post请求
+	 * 
+	 * */
 	public void post(String url, String json, HttpServletRequest request, HttpServletResponse response) {
 		// 设置请求方法post
 		HttpPost post = new HttpPost(url);
@@ -199,6 +141,11 @@ public class RestClient {
 		getResponseAsStream(post, response);
 	}
 
+
+	/**
+	 * 执行http的put请求
+	 * 
+	 * */
 	public void put(String url, String json, HttpServletRequest request, HttpServletResponse response) {
 		HttpPut put = new HttpPut(url);
 
@@ -215,25 +162,6 @@ public class RestClient {
 			}
 		}
 		getResponseAsStream(put, response);
-	}
-
-	public String put(String url, String json, HttpServletRequest request) {
-		//设置请求方法put
-		HttpPut put = new HttpPut(url);
-
-		if (json != null) {
-			put.setEntity(new StringEntity(json, ContentType.APPLICATION_JSON));
-		}
-		Enumeration headerNames = request.getHeaderNames();
-		while (headerNames.hasMoreElements()) {
-			String key = (String) headerNames.nextElement();
-			String value = request.getHeader(key);
-			if (!"content-length".equals(key.toLowerCase())) {
-				logger.info("set header : {} = {}", key, value);
-				put.setHeader(key, value);
-			}
-		}
-		return getResponseAsString(put);
 	}
 
 }
