@@ -6,10 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="keywords" content="jquery,ui,easy,easyui,web">
 	<meta name="description" content="easyui help you build your web page easily!">
-	<title>jQuery EasyUI CRUD Demo</title>
-	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/default/easyui.css">
-	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/demo/demo.css">
+	<title>用户信息系统</title>
+	<link rel="stylesheet" type="text/css" href="./js/easyui/easyui.css">
+	<!-- <link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/demo/demo.css"> -->
 	<style type="text/css">
 		#fm{
 			margin:0;
@@ -41,10 +41,10 @@
 			rownumbers="true" fitColumns="true" singleSelect="true">
 		<thead>
 			<tr>
-				<th field="userName" width="50">userName</th>
-				<th field="age" width="50">age</th>
-				<th field="phone" width="50">Phone</th>
-				<th field="email" width="50">Email</th>
+				<th field="userName" width="50">姓名</th>
+				<th field="age" width="50">年龄</th>
+				<th field="phone" width="50">手机</th>
+				<th field="email" width="50">邮箱</th>
 			</tr>
 		</thead>
 	</table>
