@@ -8,8 +8,6 @@
 	<meta name="description" content="easyui help you build your web page easily!">
 	<title>用户信息系统</title>
 	<link rel="stylesheet" type="text/css" href="./js/easyui/easyui.css">
-	<!-- <link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/themes/icon.css">
-	<link rel="stylesheet" type="text/css" href="http://www.jeasyui.net/Public/js/easyui/demo/demo.css"> -->
 	<style type="text/css">
 		#fm{
 			margin:0;
