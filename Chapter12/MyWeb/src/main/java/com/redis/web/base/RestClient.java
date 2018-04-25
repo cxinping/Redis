@@ -27,24 +27,35 @@ import com.redis.web.controller.RestHandle;
 public class RestClient {
 	private Logger logger = LoggerFactory.getLogger(RestHandle.class);
 
+	/**
+	 * 得到请求的响应值
+	 * 
+	 * */
 	public HttpResponse getResponse(HttpUriRequest request) {
+		//默认的http客户端
 		DefaultHttpClient client = new DefaultHttpClient();
 		HttpResponse httpResponse = null;
 		try {
 			httpResponse = client.execute(request);
+			//获得相应实体
 			HttpEntity entity = httpResponse.getEntity();
 			if (entity != null) {
 				return httpResponse;
 			}
 		} catch (Exception e) {
+			//关闭客户端连接
 			client.getConnectionManager().shutdown();
 			e.printStackTrace();
 		}
 		return httpResponse;
 	}
 
+	/**
+	 * 以字符串形式得到请求的响应值
+	 * 
+	 * */
 	public String getResponseAsString(HttpUriRequest request) {
-
+		//默认的http客户端
 		DefaultHttpClient client = new DefaultHttpClient();
 		try {
 			HttpResponse httpResponse = client.execute(request);
@@ -62,8 +73,12 @@ public class RestClient {
 		return null;
 	}
 
+	/**
+	 * 对请求的响应值以输出流的形式进行处理
+	 * 
+	 * */
 	public void getResponseAsStream(HttpUriRequest request, HttpServletResponse response) {
-
+		//默认的http客户端
 		DefaultHttpClient client = new DefaultHttpClient();
 		try {
 			HttpResponse httpResponse = client.execute(request);
@@ -135,6 +150,7 @@ public class RestClient {
 	public void delete(String url, HttpServletRequest request, HttpServletResponse response) {
 		// 设置请求方法delete
 		HttpDelete delete = new HttpDelete(url);
+		//得到请求头参数
 		Enumeration headerNames = request.getHeaderNames();
 		while (headerNames.hasMoreElements()) {
 			String key = (String) headerNames.nextElement();
