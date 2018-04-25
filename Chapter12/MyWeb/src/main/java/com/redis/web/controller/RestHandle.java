@@ -17,9 +17,10 @@ import com.redis.web.base.RestClient;
 @Controller
 public class RestHandle {
 	private Logger logger = LoggerFactory.getLogger(RestHandle.class);
-	
+	//nginx的请求转发地址
 	private String restBaseUrl ="http://127.0.0.1:80";
 
+	//请求的过滤地址，以/user/api开头的请求
 	@RequestMapping(value={"/user/api/**"})
 	public void handler(HttpServletRequest request,@RequestBody String json,HttpServletResponse response) throws ParseException, IOException {
 		RestClient rest = new RestClient();
@@ -37,23 +38,29 @@ public class RestHandle {
 		url = url.substring(beginIdx, url.length());
 		System.out.println("***222 url="+url);
 		
+		//转发get请求
 		if  (request.getMethod().toLowerCase().equals("get")){
 			logger.debug("* method:get url:{}",restBaseUrl + url);
 			 rest.get(restBaseUrl + url ,request,response);	
 		}	
+		
+		//转发post请求
 		if  (request.getMethod().toLowerCase().equals("post")){
 			logger.debug("method:post url:{}  body:{}",restBaseUrl + url,json);
 			rest.post(restBaseUrl + url,json ,request,response);
 		}
+		
+		//转发put请求
 		if  (request.getMethod().toLowerCase().equals("put")){
 			
 			logger.debug("method:put url:{}  body:{}",restBaseUrl + url,json);
 			rest.put(restBaseUrl + url,json ,request,response);
 		}
+		
+		//转发delete请求
 		if  (request.getMethod().toLowerCase().equals("delete")){
 			logger.debug("method:delete url:{}",restBaseUrl + url);
 			rest.delete(restBaseUrl + url ,request,response);
 		}
-		
 	}	
 }

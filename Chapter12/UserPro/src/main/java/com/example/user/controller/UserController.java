@@ -79,8 +79,8 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/users", method = RequestMethod.GET)
-	public Map queryUser(){
-		logger.info("**** queryUser");
+	public Map queryUsers(){
+		logger.info("**** queryUsers");
 		
 		//redisTemplate.opsForList().set("user", 2, "newTwo");
         List<User> list = redisTemplate.opsForList().range("user", 0, -1);
