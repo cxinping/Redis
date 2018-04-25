@@ -46,9 +46,9 @@ public class UserController {
 	 * 
 	 * 后端通过 @RequestBody 直接将json字符串绑定到对应的model上
 	 */	
-	@RequestMapping(value = "/v1/user/add", consumes = "application/json" ,method = RequestMethod.POST )
+	@RequestMapping(value = "/v1/user/add", consumes = "application/json" ,method = RequestMethod.PUT )
 	public  Map addUser(@RequestBody  User user) {
-		logger.info("--- POST addUser() param=" );
+		logger.info("--- PUT addUser() param=" );
 		logger.info("*** user" + user);
 		
 		user.setId("user:"+ System.currentTimeMillis());

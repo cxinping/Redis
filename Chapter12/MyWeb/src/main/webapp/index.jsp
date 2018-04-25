@@ -7,7 +7,9 @@
 	<meta name="keywords" content="jquery,ui,easy,easyui,web">
 	<meta name="description" content="easyui help you build your web page easily!">
 	<title>用户信息系统</title>
-	<link rel="stylesheet" type="text/css" href="./js/easyui/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./js/easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="./js/easyui/themes/icon.css">
+	
 	<style type="text/css">
 		#fm{
 			margin:0;
@@ -139,7 +141,7 @@
 			 
 			 $.ajax({
 				    url:  "user/api/users/v1/user/add",	
-					type : "post" ,
+					type : "put" ,
 					contentType: "application/json",
 		            dataType: "json",					
 					data: JSON.stringify(user) ,						
