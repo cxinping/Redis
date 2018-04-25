@@ -33,7 +33,7 @@ public class RestClient {
 	 * 
 	 * */
 	public void getResponseAsStream(HttpUriRequest request, HttpServletResponse response) {
-		//默认的http客户端
+		//默认的http客户
 		DefaultHttpClient client = new DefaultHttpClient();
 		try {
 			HttpResponse httpResponse = client.execute(request);
@@ -84,7 +84,7 @@ public class RestClient {
 	 * 
 	 * */
 	public void get(String url, HttpServletRequest request, HttpServletResponse response) {
-		// 设置请求方法get
+		// 设置get请求
 		HttpGet get = new HttpGet(url);
 		Enumeration headerNames = request.getHeaderNames();
 		while (headerNames.hasMoreElements()) {
@@ -104,7 +104,7 @@ public class RestClient {
 	 * 
 	 * */
 	public void delete(String url, HttpServletRequest request, HttpServletResponse response) {
-		// 设置请求方法delete
+		// 设置delete请求
 		HttpDelete delete = new HttpDelete(url);
 		//得到请求头参数
 		Enumeration headerNames = request.getHeaderNames();
@@ -124,7 +124,7 @@ public class RestClient {
 	 * 
 	 * */
 	public void post(String url, String json, HttpServletRequest request, HttpServletResponse response) {
-		// 设置请求方法post
+		// 设置post请求
 		HttpPost post = new HttpPost(url);
 		if (json != null) {
 			post.setEntity(new StringEntity(json, ContentType.APPLICATION_JSON));
@@ -147,6 +147,7 @@ public class RestClient {
 	 * 
 	 * */
 	public void put(String url, String json, HttpServletRequest request, HttpServletResponse response) {
+		// 设置put请求
 		HttpPut put = new HttpPut(url);
 
 		if (json != null) {
