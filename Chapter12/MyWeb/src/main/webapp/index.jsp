@@ -106,8 +106,7 @@
 		            phone:$("#phone").val(),
 		            email:$("#email").val()
 		        };
-			console.log(JSON.stringify(user));
-			console.log("===================");
+			//console.log(JSON.stringify(user));
 			
 			//var param = $('#fm').serializeArray();
 			//console.log( JSON.stringify(param));
@@ -161,7 +160,6 @@
 					}
 				});
 		}
-			
 	   
 		//修改用户	
 		function editUser(){
@@ -182,8 +180,11 @@
 				var user = {
 			            id :  row.id,
 						userName:$("#userName").val(),
-			            age:$("#age").val()
+			            age:$("#age").val(),
+			            phone:$("#phone").val(),
+			            email:$("#email").val()
 			        };
+				
 				console.log( 'editUserAction='+JSON.stringify(user) );
 				
 				$.ajax({
@@ -204,9 +205,7 @@
 							getUsers();
 						}
 					});
-		 
 		 }
-		 
 		 
 		//删除用户
 		function removeUser(){
