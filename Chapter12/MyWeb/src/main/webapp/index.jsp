@@ -60,45 +60,63 @@
 		<form id="fm" method="post" novalidate>
 			<div class="fitem">
 				<label>userName</label>
-				<input name="userName" id="userName" class="easyui-validatebox" required="true">
+				<input name="userName" id="userName" class="easyui-validatebox" required="true"  missingMessage="登录名不能空" >
 			</div>
 			<div class="fitem">
 				<label>age</label>
-				<input name="age"  id="age" class="easyui-validatebox" required="true">
+				<input name="age"  id="age" class="easyui-validatebox" validType="ageNum" >
 			</div>
 			<div class="fitem">
 				<label>Phone:</label>
-				<input name="phone" id="phone">
+				<input name="phone" id="phone" class="easyui-validatebox" validType=phoneNum >
 			</div>
 			<div class="fitem">
 				<label>Email:</label>
-				<input name="email" id="email" class="easyui-validatebox" validType="email">
+				<input name="email" id="email" class="easyui-validatebox" validType="email" invalidMessage="请输入正确的邮箱">
 			</div>
 		</form>
 	</div>
 	<div id="dlg-buttons">
-		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="saveUser()">添加</a>
-		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" onclick="editUserAction()">修改</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" id="addBtn" style="display:none" onclick="saveUser()">添加</a>
+		<a href="#" class="easyui-linkbutton" iconCls="icon-ok" id="editBtn" style="display:none" onclick="editUserAction()">修改</a>
 		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')">取消</a>
 	</div>
 	<script type="text/javascript" src="./js/easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript">
-		var url;
+		
+		//扩展JqueryUI的校验规则
+	    $.extend($.fn.validatebox.defaults.rules, {     
+            phoneNum: { //验证手机号    
+                validator: function(value, param){  
+                 return /^1[3-8]+\d{9}$/.test(value);  
+                },     
+                message: '请输入正确的手机号码。'    
+            },  
+            
+            ageNum: { //验证年龄    
+                validator: function(value, param){  
+                 return /^[0-9]{1,2}$/.test(value);  
+                },     
+                message: '请输入合法的年龄（1~99）岁。'    
+            },  
+             
+            telNum:{ //既验证手机号，又验证座机号  
+              validator: function(value, param){  
+                  return /(^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$)|(^((\d3)|(\d{3}\-))?(1[358]\d{9})$)/.test(value);  
+                 },     
+                 message: '请输入正确的电话号码。'  
+            }    
+        });  
+		
 		function newUser(){
 			$('#dlg').dialog('open').dialog('setTitle','添加用户');
 			$('#fm').form('clear');
+			
+			$("#addBtn").show();
 		}
 	
 		function saveUser(){
-			/**
-			var record = {
-					id : '1111',
-					userName : 'abcdef',
-					age : 26
-			};
-			//console.log(JSON.stringify(record));
-			*/
 			
 			var user = {
 		            userName:$("#userName").val(),
@@ -106,40 +124,6 @@
 		            phone:$("#phone").val(),
 		            email:$("#email").val()
 		        };
-			//console.log(JSON.stringify(user));
-			
-			//var param = $('#fm').serializeArray();
-			//console.log( JSON.stringify(param));
-			
-			/**
-			$('#fm').form('submit',{
-				url:  "user/api/users/v1/user/add",
-				contentType: 'application/json;charset=utf-8',
-				dataType: "json",
-				data: JSON.stringify(rowData) ,
-				onSubmit: function(){
-					return $(this).form('validate');
-				},
-				success: function(result){
-					var result = eval('('+result+')');
-					if (result.success){
-						$('#dlg').dialog('close');		// close the dialog
-						$('#dg').datagrid('reload');	// reload the user data
-					} else {
-						$.messager.show({
-							title: 'Error',
-							msg: result.msg
-						});
-					}
-				},
-				 error: function (xhr, status, p3, p4) {
-	                    var err = "Error " + " " + status + " " + p3;
-	                    if (xhr.responseText && xhr.responseText[0] == "{")
-	                        err = JSON.parse(xhr.responseText).message;
-	                    alert(err);
-	            }
-			});
-			 **/
 			 
 			 $.ajax({
 				    url:  "user/api/users/v1/user/add",	
@@ -148,9 +132,7 @@
 		            dataType: "json",					
 					data: JSON.stringify(user) ,						
 					error : function(json) {
-						//alert(  json  );
 						console.log( json );
-						
 					},
 					success : function(data) {
 						$('#dlg').dialog('close');		// close the dialog
@@ -166,12 +148,13 @@
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
 				$('#dlg').dialog('open').dialog('setTitle','修改用户');
-				/**
 				$('#fm').form('load',row);
-				url = 'update_user.php?id='+row.id;
-				*/
-				$('#fm').form('load',row);
-				//console.log(  row.id );
+				$("#editBtn").show();
+			}else{
+				$.messager.show({	// show error message
+					title: 'Error',
+					msg: '请选择操作的记录'
+				});
 			}
 		}	
 			
@@ -185,8 +168,6 @@
 			            email:$("#email").val()
 			        };
 				
-				console.log( 'editUserAction='+JSON.stringify(user) );
-				
 				$.ajax({
 					    url:  "user/api/users/v1/user/update",	
 						type : "post" ,
@@ -194,14 +175,11 @@
 			            dataType: "json",					
 						data: JSON.stringify(user) ,						
 						error : function(json) {
-							//alert(  json  );
 							console.log( json );
-							
 						},
 						success : function(data) {
+							// 关闭窗口
 							$('#dlg').dialog('close');		// close the dialog
-							//console.log(JSON.stringify(data))
-						 
 							getUsers();
 						}
 					});
@@ -213,6 +191,8 @@
 			if (row){
 				$.messager.confirm('确认','你确认删除这条纪录吗?',function(r){
 					if (r){
+						console.log( JSON.stringify(r) );
+						
 						/**
 						$.post('remove_user.php',{id:row.id},function(result){
 							if (result.success){
@@ -233,22 +213,26 @@
 							dataType : 'json',
 							url : "user/api/users/v1/user/" + row.id ,			
 							error : function(json) {
-								console.log( "222 "+ json );
 								console.log( JSON.stringify(json) );
-								
 							},
 							success : function(data) {
 								console.log("111 "+ JSON.stringify(data))
-								//$('#dg').datagrid('reload');
 								getUsers();
-								
 							}
 						});
 						
 					}
 				});
+			}else{
+				$.messager.show({	// show error message
+					title: 'Error',
+					msg: '请选择操作的记录'
+				});
 			}
 		}
+		
+		
+		
 	
 		//查询用户列表
 		function getUsers() {
@@ -259,11 +243,10 @@
 				dataType : 'json', //返回数据的格式
 				url : "user/api/users/v1/users",			
 				error : function(json) {
-					alert(  json  );
 					console.log( json );
 				},
 				success : function(data) {
-					//console.log(JSON.stringify(data))
+					//重新加载用户列表
 					$("#dg").datagrid("loadData", data.rows);
 				}
 			});
