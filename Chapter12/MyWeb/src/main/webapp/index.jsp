@@ -68,11 +68,11 @@
 			</div>
 			<div class="fitem">
 				<label>Phone:</label>
-				<input name="phone">
+				<input name="phone" id="phone">
 			</div>
 			<div class="fitem">
 				<label>Email:</label>
-				<input name="email" class="easyui-validatebox" validType="email">
+				<input name="email" id="email" class="easyui-validatebox" validType="email">
 			</div>
 		</form>
 	</div>
@@ -102,9 +102,12 @@
 			
 			var user = {
 		            userName:$("#userName").val(),
-		            age:$("#age").val()
+		            age:$("#age").val(),
+		            phone:$("#phone").val(),
+		            email:$("#email").val()
 		        };
 			console.log(JSON.stringify(user));
+			console.log("===================");
 			
 			//var param = $('#fm').serializeArray();
 			//console.log( JSON.stringify(param));
@@ -160,7 +163,7 @@
 		}
 			
 	   
-			
+		//修改用户	
 		function editUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
@@ -205,7 +208,7 @@
 		 }
 		 
 		 
-		 
+		//删除用户
 		function removeUser(){
 			var row = $('#dg').datagrid('getSelected');
 			if (row){
@@ -248,6 +251,7 @@
 			}
 		}
 	
+		//查询用户列表
 		function getUsers() {
 			$.ajax({
 				async : true, //是否异步

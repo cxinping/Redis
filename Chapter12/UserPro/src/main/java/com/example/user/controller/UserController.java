@@ -1,6 +1,5 @@
 package com.example.user.controller;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.domain.User;
@@ -47,7 +45,7 @@ public class UserController {
 	 * 后端通过 @RequestBody 直接将json字符串绑定到对应的model上
 	 */	
 	@RequestMapping(value = "/v1/user/add", consumes = "application/json" ,method = RequestMethod.PUT )
-	public  Map addUser(@RequestBody  User user) {
+	public  Map<String,Object> addUser(@RequestBody User user) {
 		logger.info("--- PUT addUser() param=" );
 		logger.info("*** user" + user);
 		
@@ -68,7 +66,7 @@ public class UserController {
 			e.printStackTrace();
 		}
 	 	        
-		Map result = new HashMap();
+		Map<String,Object> result = new HashMap<String,Object>();
 		result.put("result", true);
 		result.put("timestamp", System.currentTimeMillis());
 		return result;
@@ -79,13 +77,13 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/users", method = RequestMethod.GET)
-	public Map queryUsers(){
+	public Map<String,Object> queryUsers(){
 		logger.info("**** queryUsers");
 		
 		//redisTemplate.opsForList().set("user", 2, "newTwo");
         List<User> list = redisTemplate.opsForList().range("user", 0, -1);
         
-        Map rows = new HashMap();
+        Map<String,Object> rows = new HashMap<String,Object>();
         rows.put("total", list.size());
         rows.put("rows", list);
 		return rows;
@@ -96,7 +94,7 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/user/{userId}", method = RequestMethod.DELETE)
-	public Map delUser(@PathVariable("userId") String userId){
+	public Map<String,Object> delUser(@PathVariable("userId") String userId){
 		logger.info("**** delUser userId="+userId);
 		
 		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
@@ -112,7 +110,7 @@ public class UserController {
 			}
 		}
 
-		Map result = new HashMap<>();
+		Map<String,Object> result = new HashMap<String,Object>();
 		result.put("success", true);
 		result.put("removeCount", removeCount);
 		result.put("timestamp", System.currentTimeMillis());
@@ -124,7 +122,7 @@ public class UserController {
 	 * 
 	 */
 	@RequestMapping(value = "/v1/user/update", method = RequestMethod.POST)
-	public Map updateUser(@RequestBody User user){		
+	public Map<String,Object> updateUser(@RequestBody User user){		
 		logger.info("**** updateUser user="+user);
 		
 		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
@@ -139,7 +137,7 @@ public class UserController {
 			}
 		}
 		
-		Map result = new HashMap<>();
+		Map<String,Object> result = new HashMap<String,Object>();
 		result.put("result", true);
 		result.put("timestamp", System.currentTimeMillis());
 		return result;
