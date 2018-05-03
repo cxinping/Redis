@@ -96,24 +96,31 @@ public class UserController {
 	@RequestMapping(value = "/v1/user/{userId}", method = RequestMethod.DELETE)
 	public Map<String,Object> delUser(@PathVariable("userId") String userId){
 		logger.info("**** delUser userId="+userId);
-		
-		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
-		Long removeCount = null;
-		for(int i=0,j=list.size();i<j;i++){
-			User user = list.get(i);
-			logger.info(user);
-			if( user.getId().equals(userId )){
-				removeCount = redisTemplate.opsForList().remove("user", i, user);	
-				logger.info("**** removeCount="+removeCount);
-				
-				break;
-			}
-		}
-
 		Map<String,Object> result = new HashMap<String,Object>();
-		result.put("success", true);
-		result.put("removeCount", removeCount);
-		result.put("timestamp", System.currentTimeMillis());
+		try{
+			List<User> list = redisTemplate.opsForList().range("user", 0, -1);
+			Long removeCount = null;
+			for(int i=0,j=list.size();i<j;i++){
+				User user = list.get(i);
+				logger.info(user);
+				if( user.getId().equals(userId )){
+					removeCount = redisTemplate.opsForList().remove("user", i, user);	
+					logger.info("**** removeCount="+removeCount);
+					
+					break;
+				}
+			}
+		
+			result.put("success", true);
+			result.put("removeCount", removeCount);
+			result.put("timestamp", System.currentTimeMillis());
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			result.put("success", false);
+			result.put("messge", e.getMessage());
+		}
+	
 		return result;
 	}
 	
