@@ -48,12 +48,9 @@ public class UserController {
 	public  Map<String,Object> addUser(@RequestBody User user) {
 		logger.info("--- PUT addUser() param=" );
 		logger.info("*** user" + user);
-		
-		user.setId("user:"+ System.currentTimeMillis());
-		
+		Map<String,Object> result = new HashMap<String,Object>();
 		
 	//	userService.addUser(user);
-
 	 //redisService.set(user.getId(), user);
 		
 		//redisService.addUser(user);
@@ -61,14 +58,16 @@ public class UserController {
 //	    operations.set("com.neox", user);
 	        
 		try{
+			user.setId("user:"+ System.currentTimeMillis());
 			redisTemplate.opsForList().rightPush("user", user);
+			result.put("result", true);
+			result.put("timestamp", System.currentTimeMillis());
 		}catch(Exception e){
 			e.printStackTrace();
+			result.put("success", false);
+			result.put("messge", e.getMessage());
 		}
-	 	        
-		Map<String,Object> result = new HashMap<String,Object>();
-		result.put("result", true);
-		result.put("timestamp", System.currentTimeMillis());
+		
 		return result;
 	}
 	
