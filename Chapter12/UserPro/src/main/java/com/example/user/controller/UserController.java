@@ -132,23 +132,29 @@ public class UserController {
 	public Map<String,Object> updateUser(@RequestBody User user){		
 		logger.info("**** updateUser user="+user);
 		
-		List<User> list = redisTemplate.opsForList().range("user", 0, -1);
-		Long removeCount = null;
-		for(int i=0,j=list.size();i<j;i++){
-			User getUser = list.get(i);
-//			user.setUserName("lisi2222");
-//			logger.info(user);
-			if( getUser.getId().equals(user.getId() )){
-				redisTemplate.opsForList().set("user", i, user);	
-				break;
-			}
-		}
-		
 		Map<String,Object> result = new HashMap<String,Object>();
-		result.put("result", true);
-		result.put("timestamp", System.currentTimeMillis());
+		try{
+			List<User> list = redisTemplate.opsForList().range("user", 0, -1);
+			Long removeCount = null;
+			for(int i=0,j=list.size();i<j;i++){
+				User getUser = list.get(i);
+//				user.setUserName("lisi2222");
+//				logger.info(user);
+				if( getUser.getId().equals(user.getId() )){
+					redisTemplate.opsForList().set("user", i, user);	
+					break;
+				}
+			}
+			
+			result.put("result", true);
+			result.put("timestamp", System.currentTimeMillis());
+		}catch(Exception e){
+			e.printStackTrace();
+			result.put("success", false);
+			result.put("messge", e.getMessage());
+		}
+	
 		return result;
 	}
-	
 
 }
