@@ -15,3 +15,6 @@ print( r.get('name2'))
 r.setex('name3', 'xinping' , 30 )
 print( r.get('name3'))
 
+r.psetex('name4', 10000, 'xinping'  )
+print( r.get('name4'))
+
