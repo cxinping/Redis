@@ -7,3 +7,11 @@ r = redis.Redis(connection_pool=pool)
 
 r.set('name', 'xinping', ex=30)
 print( r.get('name'))
+
+
+r.setnx('name2', 'xinping' )
+print( r.get('name2'))
+
+r.setex('name3', 'xinping' , 30 )
+print( r.get('name3'))
+
