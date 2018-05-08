@@ -41,5 +41,15 @@ r.set('name', 'xinping')
 print(r.getset('name', 'lisi'))
 print(r.get('name'))
 
+#8
+print('\n#8')
+r.set('email','xpws2006@163.com')
+print(r.getrange('email',0,7) )     #显示为字节类型
+
+r.set('name','测试')
+nameBytes = r.getrange('name',0,5)
+print (bytes.decode(nameBytes )  ) 
+
+
 
 
