@@ -34,3 +34,12 @@ r.mset({'name7': 'zhangsan' })
 print('\n#6')
 print( r.mget("name5","name6","name7")) 
 print( r.mget(["name5","name7","name7"])) 
+
+#7 
+print('\n#7')
+r.set('name', 'xinping') 
+print(r.getset('name', 'lisi'))
+print(r.get('name'))
+
+
+
