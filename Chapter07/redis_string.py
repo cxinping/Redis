@@ -62,6 +62,15 @@ print('\n#10')
 r.set('email', 'xpws2006@163.com') 
 print( r.strlen('email'))
 
+r.set('name','测试')
+print( r.strlen('name'))
+
+#11
+print('\n#11')
+r.set('name','wang')
+r.append('name' , 'wu')
+print( r.get('name') )
+
 
 
 
