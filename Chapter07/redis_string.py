@@ -44,11 +44,24 @@ print(r.get('name'))
 #8
 print('\n#8')
 r.set('email','xpws2006@163.com')
-print(r.getrange('email',0,7) )     #显示为字节类型
+print(r.getrange('email',0,7) )    
 
 r.set('name','测试')
 nameBytes = r.getrange('name',0,5)
+print ( nameBytes ) 
 print (bytes.decode(nameBytes )  ) 
+
+#9
+print('\n#9')
+r.set('email', 'xpws2006@163.com') 
+r.setrange('email', 9, 'qq.com')
+print(r.get('email'))
+
+#10
+print('\n#10')
+r.set('email', 'xpws2006@163.com') 
+print( r.strlen('email'))
+
 
 
 
