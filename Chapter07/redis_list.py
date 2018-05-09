@@ -22,5 +22,20 @@ r.lset('nums', 2, 'b')
 #4
 print('\n#4')
 r.delete('nums')
+r.lpush('nums' , 3,1,2,3)
+r.lrem('nums', 3, 1)
+print( r.lrange('nums',0,-1)  )
+
+#5
+print('\n#5')
+r.delete('nums')
 r.lpush('nums' , 1,2,3)
-#r.lrem('nums', 3, 1)
+print( r.lpop('nums'))
+print( r.lrange('nums',0,-1)  )
+
+#6
+print('\n#6')
+r.delete('nums')
+r.lpush('nums' , 1,2,3)
+print( r.lrange('nums',0,-1)  )
+
