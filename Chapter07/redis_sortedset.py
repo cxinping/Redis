@@ -6,18 +6,8 @@ r = redis.Redis(connection_pool=pool)
 
 #1
 print('\n#1')
-r.sadd('sets', 1,2,3,4)
 
-#2
-print('\n#2')
-r.delete('sets')
-r.sadd('sets', 1,2,3,4)
-print( r.scard('sets') )
 
-#3
-print('\n#3')
-r.delete('sets')
-r.sadd('sets', 1,2,3,4)
 
 
 
