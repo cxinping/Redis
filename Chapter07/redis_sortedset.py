@@ -16,6 +16,17 @@ print( r.scard('sets') )
 
 #3
 print('\n#3')
+r.delete('sets')
+r.sadd('sets', 1,2,3,4)
+
+
+
+
+
+
+
+
+
 
 
 
