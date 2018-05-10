@@ -40,7 +40,11 @@ print( r.sinter('sets1', 'sets2') )
 
 #6
 print('\n#6')
-
+r.delete('sets1')
+r.delete('sets2')
+r.sadd('sets1', 1,2,3)
+r.sadd('sets2', 2,3,4)
+print( r.sunion('sets1', 'sets2') )
 
 
 
