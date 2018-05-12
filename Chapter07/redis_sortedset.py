@@ -26,8 +26,11 @@ r.delete('zset1')
 r.zadd('zset1',num1=1, num2=2, num3=3, num4=4)
 r.zrem('zset1','num1', 'num2', 'num3')
 
-
-
+#5
+print('\n#5')
+r.delete('zset1')
+r.zadd('zset1',num1=1, num2=2, num3=3, num4=4)
+print( r.zscore('zset1' , 'num2') )
 
 
 
