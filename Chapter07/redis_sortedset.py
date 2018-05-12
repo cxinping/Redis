@@ -6,6 +6,10 @@ r = redis.Redis(connection_pool=pool)
 
 #1
 print('\n#1')
+r.zadd('zset1',num1=1,num2=2,num3=3)
+
+#
+print(r.zrange('s4',0,-1))
 
 
 
