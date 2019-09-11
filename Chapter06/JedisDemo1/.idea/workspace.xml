@@ -32,7 +32,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.JedisPoolDemo">
+    <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
+      <module name="JedisDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dxtd.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JedisPoolUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolUtils" />
+      <module name="JedisDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dxtd.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RedisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo" />
       <module name="JedisDemo1" />
@@ -55,6 +81,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JedisPoolDemo" />
+        <item itemvalue="Application.JedisPoolUtils" />
         <item itemvalue="Application.RedisDemo" />
         <item itemvalue="Application.Test" />
       </list>
@@ -70,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568173114686</updated>
-      <workItem from="1568173117853" duration="709000" />
+      <workItem from="1568173117853" duration="3672000" />
     </task>
     <servers />
   </component>
