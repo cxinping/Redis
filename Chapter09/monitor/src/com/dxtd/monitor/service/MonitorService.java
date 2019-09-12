@@ -46,7 +46,7 @@ public class MonitorService {
 		if (strs != null && strs.length > 0) {
 			for (int i = 0; i < strs.length; i++) {
 				String s = strs[i].trim();
-			
+
 				if (s.indexOf(key) > -1) {
 					String[] str = s.split(",");
 					if (null != str) {
@@ -114,19 +114,38 @@ public class MonitorService {
 
 		long thisTs = System.currentTimeMillis();
 
-		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc );
+		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc);
 		System.out.println("ccc=" + ccc + ",mum=" + mum + ",mur=" + mur);
-		System.out.println("cmd=" + cmd + ",exp=" + exp );
+		System.out.println("cmd=" + cmd + ",exp=" + exp);
 		System.out.println("evt=" + evt + ",hit=" + hit + ",mis=" + mis);
 		System.out.println("db0keysNum=" + db0keysNum);
 	}
 
 	public Map<String, Object> getRedisInfo(String infoContent) {
-		Map map = new HashMap();
+		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, String> infoMap = parseInfo(infoContent);
 		// 使用总内存
 		String mum = getStringValue(infoMap, "Memory.used_memory");
-				
+		// 连接客户端数量
+		String ccc = getStringValue(infoMap, "Clients.connected_clients");
+		// 使用物理内存
+		String mur = getStringValue(infoMap, "Memory.used_memory_rss");
+		// 运行以来执行过的命令的总数量
+		String cmd = getStringValue(infoMap, "Stats.total_commands_processed");
+		// 内核空间占用CPU百分比
+		String ucs = getStringValue(infoMap, "CPU.used_cpu_sys");
+		// 用户空间占用CPU百分比
+		String ucu = getStringValue(infoMap, "CPU.used_cpu_user");
+		Integer db0keysNum = getKeys(infoContent, "db0:keys");
+		
+		map.put("Memory.used_memory", mum);
+		map.put("Clients.connected_clients", ccc);
+		map.put("Memory.used_memory_rss", mur);
+		map.put("Stats.total_commands_processed", cmd);
+		map.put("CPU.used_cpu_sys", ucs);
+		map.put("CPU.used_cpu_user", ucu);
+		map.put("db0:keys", db0keysNum+"");
+		
 		return map;
 	}
 
@@ -135,8 +154,9 @@ public class MonitorService {
 		String info = monitor.getInfo();
 		Map map = monitor.parseInfo(info);
 		// System.out.println("map=" + map);
-		monitor.transData(info);
-
+		//monitor.transData(info);
+		Map redisInfo = monitor.getRedisInfo(info);
+		System.out.println(redisInfo);
 	}
 
 }
