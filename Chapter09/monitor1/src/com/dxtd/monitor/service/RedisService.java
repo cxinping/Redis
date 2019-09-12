@@ -110,8 +110,6 @@ public class RedisService {
 		return rif;
 	}
 
-
-
 	// 获取当前redis使用内存大小情况
 	public Map<String, Object> getMemeryInfo() {
 		String[] strs = redisUtil.getRedisInfo().split("\n");
