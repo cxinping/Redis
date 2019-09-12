@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.dxtd.monitor.RedisUtils;
-import com.dxtd.monitor.Test;
 
 import redis.clients.jedis.Jedis;
 
@@ -86,16 +85,15 @@ public class MonitorService {
 
 		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum+ ",mur="+mur);
 		System.out.println("cmd=" + cmd + ",exp=" + exp + ",evt=" + evt + ",hit=" + hit + ",mis=" + mis);
-		
-		
+				
 	}
 
 	public static void main(String[] args) {
-		Test test = new Test();
-		String info = test.getInfo();
+		MonitorService monitor = new MonitorService();
+		String info = monitor.getInfo();
 		// Map map = test.parseInfo(info);
 		// System.out.println("map=" +map);
-		test.transData(info);
+		monitor.transData(info);
 
 	}
 
