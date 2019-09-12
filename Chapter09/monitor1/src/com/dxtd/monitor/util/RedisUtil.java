@@ -57,6 +57,15 @@ public class RedisUtil {
 		jedis.close();
 	}
 
+	public static Jedis getJedis() {
+		if (jedisPool == null)
+			poolInit();
+		
+		Jedis jedis = jedisPool.getResource();
+		return jedis;
+	}
+	
+	
 	/**
 	 * 获取redis 服务器信息
 	 * 

@@ -3,7 +3,7 @@ package com.dxtd.monitor.service;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.dxtd.monitor.RedisUtils;
+import com.dxtd.monitor.util.RedisUtil;
 
 import redis.clients.jedis.Jedis;
 
@@ -13,7 +13,7 @@ public class MonitorService {
 		String infoContent = null;
 		Jedis jedis = null;
 		try {
-			jedis = RedisUtils.getJedis();
+			jedis = RedisUtil.getJedis();
 			infoContent = jedis.info();
 		} catch (Exception e) {
 			e.printStackTrace();
