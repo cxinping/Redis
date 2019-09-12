@@ -1,11 +1,14 @@
-package com.dxtd.monitor;
+package com.dxtd.monitor.service;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import com.dxtd.monitor.RedisUtils;
+import com.dxtd.monitor.Test;
+
 import redis.clients.jedis.Jedis;
 
-public class Test {
+public class MonitorService {
 
 	public String getInfo() {
 		String infoContent = null;
