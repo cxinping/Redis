@@ -15,15 +15,18 @@ public class RedisUtil {
 	 */
 	private static void createJedisPool() {
 
-		// 建立连接池配置参数
-		JedisPoolConfig config = new JedisPoolConfig();
-
-		// 设置空间连接
-		config.setMaxIdle(10);
+		 JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+         //指定连接池中最大空闲连接数
+         jedisPoolConfig.setMaxIdle(10);
+         //链接池中创建的最大连接数
+         jedisPoolConfig.setMaxTotal(100);
+         //设置创建链接的超时时间
+         jedisPoolConfig.setMaxWaitMillis(2000);
+         //表示连接池在创建链接的时候会先测试一下链接是否可用，这样可以保证连接池中的链接都可用的。
+         jedisPoolConfig.setTestOnBorrow(true);
 
 		// 创建连接池
-		jedisPool = new JedisPool(config, "127.0.0.1", 6379);
-
+		jedisPool = new JedisPool(jedisPoolConfig, "127.0.0.1", 6379);
 	}
 
 	/**
@@ -51,7 +54,7 @@ public class RedisUtil {
 	 * @param jedis
 	 */
 	public static void returnRes(Jedis jedis) {
-		//jedisPool.returnResource(jedis);
+		jedis.close();
 	}
 
 	/**
