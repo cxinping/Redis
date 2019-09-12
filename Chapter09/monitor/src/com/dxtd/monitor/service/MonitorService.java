@@ -32,12 +32,36 @@ public class MonitorService {
 		Double value = Double.valueOf(infoMap.get(key));
 		return value;
 	}
-	
+
 	public String getStringValue(Map<String, String> infoMap, String key) {
 		if (null == infoMap)
 			return "";
 
 		return infoMap.get(key).trim();
+	}
+
+	public Integer getKeys(String info, String key) {
+		Integer keysNumValue = null;
+		String[] strs = info.split("\n");
+		if (strs != null && strs.length > 0) {
+			for (int i = 0; i < strs.length; i++) {
+				String s = strs[i].trim();
+			
+				if (s.indexOf(key) > -1) {
+					
+					System.out.println(s);
+					String[] str = s.split(",");
+					if (null != str) {
+						String[] dbs = str[0].split(":");
+						String[] dbKeys = dbs[1].split("=");
+						String keyStr = dbKeys[0];
+						keysNumValue = Integer.valueOf(dbKeys[1]);
+						break;
+					}
+				}
+			}
+		}
+		return keysNumValue;
 	}
 
 	public Map parseInfo(String content) {
@@ -88,25 +112,27 @@ public class MonitorService {
 		// 每秒丢失数量
 		String mis = getStringValue(infoMap, "Stats.keyspace_misses");
 
+		Integer db0keysNum = getKeys(infoContent, "db0:keys");
+
 		long thisTs = System.currentTimeMillis();
 
 		System.out
 				.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum + ",mur=" + mur);
 		System.out.println("cmd=" + cmd + ",exp=" + exp + ",evt=" + evt + ",hit=" + hit + ",mis=" + mis);
-
+		System.out.println("db0keysNum" + db0keysNum);
 	}
 
 	public Map<String, Object> getRedisInfo() {
 		Map map = new HashMap();
-		
+
 		return map;
 	}
-	
+
 	public static void main(String[] args) {
 		MonitorService monitor = new MonitorService();
 		String info = monitor.getInfo();
-		// Map map = test.parseInfo(info);
-		//System.out.println("map=" + info);
+		Map map = monitor.parseInfo(info);
+		// System.out.println("map=" + map);
 		monitor.transData(info);
 
 	}
