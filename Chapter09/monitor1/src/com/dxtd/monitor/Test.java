@@ -56,26 +56,21 @@ public class Test {
 
 	public void transData(String infoContent) {
 		Map<String, String> infoMap = parseInfo(infoContent);
-		Statement stat = new Statement();
-		stat.setUsed_cpu_sys(getIntValue(infoMap, "CPU.used_cpu_sys"));
-		stat.setUsed_cpu_user(getIntValue(infoMap, "CPU.used_cpu_user"));
-
-		stat.setBlocked_clients(getIntValue(infoMap, "Clients.blocked_clients"));
-		stat.setConnected_clients(getIntValue(infoMap, "Clients.connected_clients"));
-		stat.setUsed_memory(getIntValue(infoMap, "Memory.used_memory"));
-		stat.setUsed_memory_rss(getIntValue(infoMap, "Memory.used_memory_rss"));
-
-		//
+		double ucs = getIntValue(infoMap, "CPU.used_cpu_sys");
+		double ucu = getIntValue(infoMap, "CPU.used_cpu_user");
+		double cbc = getIntValue(infoMap, "Clients.blocked_clients");
+		double ccc = getIntValue(infoMap, "Clients.connected_clients");
+		double mum = getIntValue(infoMap, "Memory.used_memory");
+		double mur = getIntValue(infoMap, "Memory.used_memory_rss");
+		
 		double cmd = getIntValue(infoMap, "Stats.total_commands_processed");
 		double exp = getIntValue(infoMap, "Stats.expired_keys");
 		double evt = getIntValue(infoMap, "Stats.evicted_keys");
-
 		double hit = getIntValue(infoMap, "Stats.keyspace_hits");
 		double mis = getIntValue(infoMap, "Stats.keyspace_misses");
 
-		// long lastTs = stat.getTimestamp();
 		long thisTs = System.currentTimeMillis();
-		System.out.println(stat);
+		
 	}
 
 	public static void main(String[] args) {
