@@ -56,20 +56,34 @@ public class Test {
 
 	public void transData(String infoContent) {
 		Map<String, String> infoMap = parseInfo(infoContent);
+		// 内核空间占用CPU百分比
 		double ucs = getIntValue(infoMap, "CPU.used_cpu_sys");
+		// 用户空间占用CPU百分比
 		double ucu = getIntValue(infoMap, "CPU.used_cpu_user");
+		// 阻塞客户端数量
 		double cbc = getIntValue(infoMap, "Clients.blocked_clients");
+		// 连接客户端数量
 		double ccc = getIntValue(infoMap, "Clients.connected_clients");
+		// 使用总内存
 		double mum = getIntValue(infoMap, "Memory.used_memory");
+		// 使用物理内存
 		double mur = getIntValue(infoMap, "Memory.used_memory_rss");
-		
+		// 运行以来执行过的命令的总数量
 		double cmd = getIntValue(infoMap, "Stats.total_commands_processed");
+		// 每秒过期key数量
 		double exp = getIntValue(infoMap, "Stats.expired_keys");
+		// 每秒淘汰key数量
 		double evt = getIntValue(infoMap, "Stats.evicted_keys");
+		// 每秒命中数量
 		double hit = getIntValue(infoMap, "Stats.keyspace_hits");
+		// 每秒丢失数量
 		double mis = getIntValue(infoMap, "Stats.keyspace_misses");
 
 		long thisTs = System.currentTimeMillis();
+
+		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum+ ",mur="+mur);
+		System.out.println("cmd=" + cmd + ",exp=" + exp + ",evt=" + evt + ",hit=" + hit + ",mis=" + mis);
+		
 		
 	}
 
