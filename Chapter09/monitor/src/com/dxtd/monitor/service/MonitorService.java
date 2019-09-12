@@ -25,12 +25,19 @@ public class MonitorService {
 		return infoContent;
 	}
 
-	Double getIntValue(Map<String, String> infoMap, String key) {
+	public Double getIntValue(Map<String, String> infoMap, String key) {
 		if (null == infoMap)
 			return 0.0;
 
 		Double value = Double.valueOf(infoMap.get(key));
 		return value;
+	}
+	
+	public String getStringValue(Map<String, String> infoMap, String key) {
+		if (null == infoMap)
+			return "";
+
+		return infoMap.get(key).trim();
 	}
 
 	public Map parseInfo(String content) {
@@ -59,27 +66,27 @@ public class MonitorService {
 	public void transData(String infoContent) {
 		Map<String, String> infoMap = parseInfo(infoContent);
 		// 内核空间占用CPU百分比
-		double ucs = getIntValue(infoMap, "CPU.used_cpu_sys");
+		String ucs = getStringValue(infoMap, "CPU.used_cpu_sys");
 		// 用户空间占用CPU百分比
-		double ucu = getIntValue(infoMap, "CPU.used_cpu_user");
+		String ucu = getStringValue(infoMap, "CPU.used_cpu_user");
 		// 阻塞客户端数量
-		double cbc = getIntValue(infoMap, "Clients.blocked_clients");
+		String cbc = getStringValue(infoMap, "Clients.blocked_clients");
 		// 连接客户端数量
-		double ccc = getIntValue(infoMap, "Clients.connected_clients");
+		String ccc = getStringValue(infoMap, "Clients.connected_clients");
 		// 使用总内存
-		double mum = getIntValue(infoMap, "Memory.used_memory");
+		String mum = getStringValue(infoMap, "Memory.used_memory");
 		// 使用物理内存
-		double mur = getIntValue(infoMap, "Memory.used_memory_rss");
+		String mur = getStringValue(infoMap, "Memory.used_memory_rss");
 		// 运行以来执行过的命令的总数量
-		double cmd = getIntValue(infoMap, "Stats.total_commands_processed");
+		String cmd = getStringValue(infoMap, "Stats.total_commands_processed");
 		// 每秒过期key数量
-		double exp = getIntValue(infoMap, "Stats.expired_keys");
+		String exp = getStringValue(infoMap, "Stats.expired_keys");
 		// 每秒淘汰key数量
-		double evt = getIntValue(infoMap, "Stats.evicted_keys");
+		String evt = getStringValue(infoMap, "Stats.evicted_keys");
 		// 每秒命中数量
-		double hit = getIntValue(infoMap, "Stats.keyspace_hits");
+		String hit = getStringValue(infoMap, "Stats.keyspace_hits");
 		// 每秒丢失数量
-		double mis = getIntValue(infoMap, "Stats.keyspace_misses");
+		String mis = getStringValue(infoMap, "Stats.keyspace_misses");
 
 		long thisTs = System.currentTimeMillis();
 
@@ -89,11 +96,17 @@ public class MonitorService {
 
 	}
 
+	public Map<String, Object> getRedisInfo() {
+		Map map = new HashMap();
+		
+		return map;
+	}
+	
 	public static void main(String[] args) {
 		MonitorService monitor = new MonitorService();
 		String info = monitor.getInfo();
 		// Map map = test.parseInfo(info);
-		System.out.println("map=" + info);
+		//System.out.println("map=" + info);
 		monitor.transData(info);
 
 	}

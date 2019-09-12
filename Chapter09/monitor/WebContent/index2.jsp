@@ -78,7 +78,7 @@
 	function render(jsonObj) {
 
 		for (var i = 0; i < jsonObj.length; i++) {
-			//console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
+			console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
 				// 使曲线图中最多显示18个点
