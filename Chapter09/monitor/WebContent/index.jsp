@@ -84,7 +84,7 @@
 							</div>
 						</div>
 
-						<!-- total keysCard Example -->
+						<!-- connected clients Card Example -->
 						<div class="  col-md-6 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
 								<div class="card-body">
@@ -92,7 +92,7 @@
 										<div class="col mr-2">
 											<div
 												class="text-xs font-weight-bold text-success text-uppercase mb-1">
-												total keys
+												connected clients
 												</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
 										</div>

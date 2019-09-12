@@ -48,8 +48,6 @@ public class MonitorService {
 				String s = strs[i].trim();
 			
 				if (s.indexOf(key) > -1) {
-					
-					System.out.println(s);
 					String[] str = s.split(",");
 					if (null != str) {
 						String[] dbs = str[0].split(":");
@@ -116,15 +114,19 @@ public class MonitorService {
 
 		long thisTs = System.currentTimeMillis();
 
-		System.out
-				.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum + ",mur=" + mur);
-		System.out.println("cmd=" + cmd + ",exp=" + exp + ",evt=" + evt + ",hit=" + hit + ",mis=" + mis);
-		System.out.println("db0keysNum" + db0keysNum);
+		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc );
+		System.out.println("ccc=" + ccc + ",mum=" + mum + ",mur=" + mur);
+		System.out.println("cmd=" + cmd + ",exp=" + exp );
+		System.out.println("evt=" + evt + ",hit=" + hit + ",mis=" + mis);
+		System.out.println("db0keysNum=" + db0keysNum);
 	}
 
-	public Map<String, Object> getRedisInfo() {
+	public Map<String, Object> getRedisInfo(String infoContent) {
 		Map map = new HashMap();
-
+		Map<String, String> infoMap = parseInfo(infoContent);
+		// 使用总内存
+		String mum = getStringValue(infoMap, "Memory.used_memory");
+				
 		return map;
 	}
 
