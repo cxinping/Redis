@@ -35,8 +35,8 @@ public class RedisServiceHandler implements Runnable {
     			//群发消息
 				webSocket.sendMessage(JSON.toJSONString(details) );
 				
-				//每10秒发送一次消息，以便页面更新数据
-				Thread.sleep(1000 * 10 );
+				//每5秒发送一次消息，以便页面更新数据
+				Thread.sleep(1000 * 5 );
 			} catch (IOException e) {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
