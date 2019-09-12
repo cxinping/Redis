@@ -83,16 +83,17 @@ public class MonitorService {
 
 		long thisTs = System.currentTimeMillis();
 
-		System.out.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum+ ",mur="+mur);
+		System.out
+				.println("ucs=" + ucs + ",ucu=" + ucu + ",cbc=" + cbc + ",ccc=" + ccc + ",mum=" + mum + ",mur=" + mur);
 		System.out.println("cmd=" + cmd + ",exp=" + exp + ",evt=" + evt + ",hit=" + hit + ",mis=" + mis);
-				
+
 	}
 
 	public static void main(String[] args) {
 		MonitorService monitor = new MonitorService();
 		String info = monitor.getInfo();
 		// Map map = test.parseInfo(info);
-		// System.out.println("map=" +map);
+		System.out.println("map=" + info);
 		monitor.transData(info);
 
 	}
