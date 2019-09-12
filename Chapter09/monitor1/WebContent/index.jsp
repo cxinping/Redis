@@ -66,15 +66,16 @@
 					<!-- Content Row -->
 					<div class="row row_class">
 
-						<!-- Earnings (Monthly) Card Example -->
+						<!-- used memory Card Example -->
 						<div class="  col-md-6 mb-4">
 							<div class="card border-left-primary shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div
-												class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings
-												(Monthly)</div>
+												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+												 used memory												
+												</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
 										</div>
 
@@ -83,15 +84,16 @@
 							</div>
 						</div>
 
-						<!-- Earnings (Monthly) Card Example -->
+						<!-- total keysCard Example -->
 						<div class="  col-md-6 mb-4">
 							<div class="card border-left-success shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div
-												class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings
-												(Annual)</div>
+												class="text-xs font-weight-bold text-success text-uppercase mb-1">
+												total keys
+												</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
 										</div>
 
@@ -100,41 +102,15 @@
 							</div>
 						</div>
 
-						<!-- Earnings (Monthly) Card Example -->
+						<!--Clients Card Example -->
 						<div class="  col-md-6 mb-4">
 							<div class="card border-left-info shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-											<div class="row no-gutters align-items-center">
-												<div class="col-auto">
-													<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-												</div>
-												<div class="col">
-													<div class="progress progress-sm mr-2">
-														<div class="progress-bar bg-info" role="progressbar"
-															style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-															aria-valuemax="100"></div>
-													</div>
-												</div>
+											<div	class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+											 Clients
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pending Requests Card Example -->
-						<div class="  col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
-												Requests</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 										</div>
 									</div>
@@ -142,15 +118,15 @@
 							</div>
 						</div>
 
-						<!-- Pending Requests Card Example -->
+						<!-- commands processed Card Example -->
 						<div class="  col-md-6 mb-4">
 							<div class="card border-left-warning shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
-												Requests</div>
+											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+												commands processed
+											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 										</div>
 									</div>
@@ -158,37 +134,39 @@
 							</div>
 						</div>
 
-						<!-- Pending Requests Card Example -->
+						<!-- used_cpus_sys Card Example -->
+						<div class="  col-md-6 mb-4">
+							<div class="card border-left-warning shadow h-100 py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div
+												class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+												used_cpus_sys
+												</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- used_cpu_user Card Example -->
 						<div class="col-md-6 mb-4">
 							<div class="card border-left-warning shadow h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
-												Requests</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+												used_cpu_user
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">19</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 
-						<!-- Pending Requests Card Example -->
-						<div class=" col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending
-												Requests</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 
 					</div>
 
@@ -242,51 +220,6 @@
 
 						</div>
 
-						<div class="col-lg-12 mb-2">
-
-							<!-- Illustrations -->
-							<div class="card shadow mb-2">
-								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-								</div>
-								<div class="card-body">
-
-									<div id="main2" style="width: 100%; height: 400px;"></div>
-									<script type="text/javascript">
-										// 基于准备好的dom，初始化echarts实例
-										var myChart = echarts.init(document
-												.getElementById('main2'));
-
-										// 指定图表的配置项和数据
-										var option = {
-											title : {
-												text : 'ECharts 入门示例'
-											},
-											tooltip : {},
-											legend : {
-												data : [ '销量' ]
-											},
-											xAxis : {
-												data : [ "衬衫", "羊毛衫", "雪纺衫",
-														"裤子", "高跟鞋", "袜子" ]
-											},
-											yAxis : {},
-											series : [ {
-												name : '销量',
-												type : 'bar',
-												data : [ 5, 20, 36, 10, 10, 20 ]
-											} ]
-										};
-
-										// 使用刚指定的配置项和数据显示图表。
-										myChart.setOption(option);
-									</script>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 				<!-- /.container-fluid -->
 
 			</div>
