@@ -1,70 +1,38 @@
 package com.dxtd.monitor.test;
 
 
-import com.alibaba.fastjson.JSON;
-import com.dxtd.monitor.service.RedisService;
-import com.dxtd.monitor.util.RedisUtil;
-
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
 public class Test {
-	private static volatile JedisPool jedisPool = null;
 
-	private Test() {
-	}
+	public void testList() {
+		// 连接redis服务器，127.0.0.1:6379
+		Jedis jedis = new Jedis("127.0.0.1", 6379);
+		// 开始前，先移除所有的内容
+		jedis.del("java framework");
+		System.out.println(jedis.lrange("java framework", 0, -1));
+		// 先向key java framework中存放三条数据
+		jedis.lpush("java framework", "spring");
+		jedis.lpush("java framework", "struts");
+		jedis.lpush("java framework", "hibernate");
+		// 再取出所有数据jedis.lrange是按范围取出，
+		// 第一个是key，第二个是起始位置，第三个是结束位置，jedis.llen获取长度 -1表示取得所有
+		System.out.println(jedis.lrange("java framework", 0, -1));
 
-	public static JedisPool getJedisPoolInstance() {
-		if (null == jedisPool) {
-			synchronized (Test.class) { // 这里使用双端检测设计模式
-				if (null == jedisPool) {
-					JedisPoolConfig poolConfig = new JedisPoolConfig();
-					// 控制一个pool可分配多少个jedis实例，通过pool.getResource()来获取；如果赋值为-1，则表示不限制，
-					// 如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted
-					poolConfig.setMaxIdle(32); // 设置剩余连接各数，如果小于这个就会抛异常
-					// 表示当borrow一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛JedisConnectionException
-					// 获得一个jedis实例的时候是否检查连接可用性(ping()),如果为true，则得到的jedis实例均是可用的
-					poolConfig.setTestOnBorrow(true);
-					jedisPool = new JedisPool(poolConfig, "127.0.0.1", 6379);
-				}
-			}
+		jedis.del("java framework");
+		jedis.rpush("java framework", "spring");
+		jedis.rpush("java framework", "struts");
+		jedis.rpush("java framework", "hibernate");
+		for(int i=0;i<400;i++){
+			jedis.rpush("java framework"+i, "hibernate"+i);
 		}
-		return jedisPool;
+		System.out.println(jedis.lrange("java framework", 0, -1));
 	}
 
-	/**
-	 * 释放
-	 * 
-	 * @param jedisPool
-	 *            释放哪个池中
-	 * @param jedis
-	 *            的哪个对象
-	 */
-	public static void release(JedisPool jedisPool, Jedis jedis) {
-		if (null != jedis) {
-			//jedisPool.returnResourceObject(jedis);
-		}
-	}
-
+	
 	public static void main(String[] args) {
-		// JedisPool jedisPool = Test.getJedisPoolInstance();
-		// Jedis jedis = jedisPool.getResource();
-		// System.out.println( jedis );
-
-		RedisService redisService = new RedisService();
-
-		RedisUtil redisUtil = new RedisUtil();
-		String info = redisUtil.getRedisInfo();
-		// redis 内存实时占用情况
-		System.out.println(JSON.toJSONString(redisService.getRedisInfo(info, "used_memory_human")));
-
-		// redis key的实时数量
-		String keysVal = JSON.toJSONString(redisService.getKeysValue(info));
-		System.out.println(keysVal);
-
-		// RedisUtil redisUtil = new RedisUtil();
-		// redisUtil.getRedisInfo();
+		Test test = new Test();
+		test.testList();
 
 	}
 

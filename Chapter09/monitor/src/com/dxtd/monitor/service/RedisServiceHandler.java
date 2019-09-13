@@ -1,15 +1,10 @@
 package com.dxtd.monitor.service;
 
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 import com.dxtd.monitor.action.WebSocketController;
-import com.dxtd.monitor.entity.RedisInfoDetail;
-import com.dxtd.monitor.util.RedisUtil;
 
 public class RedisServiceHandler implements Runnable {
 
