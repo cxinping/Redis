@@ -109,7 +109,7 @@
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
 											<div	class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-											 Clients
+											 used_memory_rss
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 										</div>
@@ -167,33 +167,22 @@
 							</div>
 						</div>
 
-
 					</div>
 
 					<!-- Content Row -->
-
 					<div class="row">
-
 						<div class="col-lg-12 mb-2">
-
 							<!-- Illustrations -->
 							<div class="card shadow mb-2">
 								<div class="card-header py-3">
-									<h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+									<h6 class="m-0 font-weight-bold text-primary"> <div id="message"></div> </h6>
 								</div>
 								<div class="card-body">
-
-									<div id="main" style="width: 100%; height: 400px;"></div>
-
-									
-
+									<div id="main" style="width: 100%; height: 400px;"></div>	
 								</div>
 							</div>
-
 						</div>
-
 				<!-- /.container-fluid -->
-
 			</div>
 			<!-- End of Main Content -->
 
@@ -229,6 +218,66 @@
 	<script src="js/sb-admin-2.min.js"></script>
 	
 	<script type="text/javascript">
+	
+	var websocket = null;
+	//判断当前浏览器是否支持WebSocket
+	if ('WebSocket' in window) {
+		websocket = new WebSocket("ws://localhost:8080/monitor/websocket");
+		//console.log('websocket=' + websocket);
+	} else {
+		alert('当前浏览器 Not support websocket')
+	}
+
+	//连接发生错误的回调方法
+	websocket.onerror = function() {
+		setMessageInnerHTML("WebSocket连接发生错误");
+	};
+
+	//连接成功建立的回调方法
+	websocket.onopen = function() {
+		setMessageInnerHTML("WebSocket连接成功");
+		send();
+	}
+
+	//接收到消息的回调方法
+	websocket.onmessage = function(event) {
+		//setMessageInnerHTML(event.data);
+		//console.log(event.data);
+
+		jsonObj = JSON.parse(event.data);
+		console.log(jsonObj);
+		//render(jsonObj);
+	}
+
+	function trim(x) {
+		return x.replace(/^\s+|\s+$/gm, '');
+	}
+	
+	//连接关闭的回调方法
+	websocket.onclose = function() {
+		setMessageInnerHTML("WebSocket连接关闭");
+	}
+
+	//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+	window.onbeforeunload = function() {
+		closeWebSocket();
+	}
+
+	//将消息显示在网页上
+	function setMessageInnerHTML(innerHTML) {
+		document.getElementById('message').innerHTML += innerHTML + '<br/>';
+	}
+
+	//关闭WebSocket连接
+	function closeWebSocket() {
+		websocket.close();
+	}
+
+	//发送消息
+	function send() {
+		var message = Math.floor(100000 * Math.random());
+		websocket.send(message);
+	}
 	
 	function render(){
 		// 基于准备好的dom，初始化echarts实例
