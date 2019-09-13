@@ -259,7 +259,7 @@
 		myChart.setOption(option);
 	}
 	
-	
+	render();
 </script>
 									
 

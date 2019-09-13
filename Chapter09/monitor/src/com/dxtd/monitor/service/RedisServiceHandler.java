@@ -22,8 +22,7 @@ public class RedisServiceHandler implements Runnable {
 	public void run() {
 		
 		while(true){
-			
-            
+			            
     		try {
 //    			RedisService redisService = new RedisService();
 //        		RedisUtil redisUtil = new RedisUtil();
