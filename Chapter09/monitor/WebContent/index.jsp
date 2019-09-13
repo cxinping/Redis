@@ -327,19 +327,25 @@
 		
 	}
 	function renderChat(jsonObj){
-		console.log(jsonObj);
+		
 		keys = jsonObj.db0_keys;
 		time = jsonObj.time;
-		//console.log(keys, time);
+		console.log(keys, time);
 		
-		time_arr.push(time)
-		data_arr.push(keys);
-		
-		if (time_arr.length < 5) {
-			console.log('aaaaaaaa');
+		// 使曲线图中最多显示20个点
+		if (time_arr.length < 5) {			
+			time_arr.push(time);
+			data_arr.push(keys);
+		}else{
+			// 删除数组中的第一个元素
+			time_arr.splice(0, 1);
+			data_arr.splice(0, 1);
 			
+			time_arr[time_arr.length] = time;
+			data_arr[data_arr.length] = keys;			
 		}
-		console.log(time_arr.length);
+		
+		//console.log(time_arr.length);
 		
 		initChat();
 	}

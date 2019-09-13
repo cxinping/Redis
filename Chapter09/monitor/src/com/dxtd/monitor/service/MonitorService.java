@@ -59,6 +59,8 @@ public class MonitorService {
 						keysNumValue = Integer.valueOf(dbKeys[1]);
 						break;
 					}
+				}else {
+					keysNumValue = 0;
 				}
 			}
 		}

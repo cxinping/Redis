@@ -81,8 +81,8 @@
 			console.log(jsonObj[i].date + ", " + jsonObj[i].key + ", "	+ jsonObj[i].value);
 
 			if (jsonObj[i].key == 'used_memory') {
-				// 使曲线图中最多显示18个点
-				if (data1.x.length < 18) {
+				// 使曲线图中最多显示20个点
+				if (data1.x.length < 20) {
 					data1.x[data1.x.length] = jsonObj[i].date;
 					data1.y[data1.y.length] = jsonObj[i].value;
 
