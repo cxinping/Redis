@@ -113,7 +113,7 @@ public class MonitorService {
 		// 每秒丢失数量
 		String mis = getStringValue(infoMap, "Stats_keyspace_misses");
 
-		Integer db0keysNum = getKeys(infoContent, "db0:keys");
+		Integer db0keysNum = getKeys(infoContent, "db0_keys");
 
 		long thisTs = System.currentTimeMillis();
 
@@ -147,7 +147,7 @@ public class MonitorService {
 		map.put("Stats_total_commands_processed", cmd);
 		map.put("CPU_used_cpu_sys", ucs);
 		map.put("CPU_used_cpu_user", ucu);
-		map.put("db0:keys", db0keysNum+"");
+		map.put("db0_keys", db0keysNum+"");
 		map.put("time", Tools.getCurrntTime());
 		return map;
 	}

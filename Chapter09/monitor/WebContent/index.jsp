@@ -244,7 +244,7 @@
 		jsonObj = JSON.parse(event.data);
 		//console.log(jsonObj);
 		renderBoard(jsonObj);
-		renderChat(jsonObj);
+		//renderChat(jsonObj);
 	}
 
 	function trim(x) {
@@ -290,14 +290,43 @@
 		document.getElementById('Clients_connected_clients').innerHTML = Clients_connected_clients ;
 		document.getElementById('Memory_used_memory_rss').innerHTML = Memory_used_memory_rss + " M" ;
 		document.getElementById('Stats_total_commands_processed').innerHTML = Stats_total_commands_processed ;
-		
 		document.getElementById('CPU_used_cpu_sys').innerHTML = CPU_used_cpu_sys ;
-		document.getElementById('CPU_used_cpu_user').innerHTML = CPU_used_cpu_user ;
-		
+		document.getElementById('CPU_used_cpu_user').innerHTML = CPU_used_cpu_user ;		
 	}
 	
+	function initChat(){
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+
+		// 指定图表的配置项和数据
+		option = {
+				title : {
+					text : 'keys数量'
+				},
+				tooltip : {},
+			    xAxis: {
+			        type: 'category',
+			        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+			    },
+			    yAxis: {
+			        type: 'value'
+			    },
+			    series: [{
+			        data: [820, 932, 901, 934, 1290, 1330, 1320],
+			        type: 'line',
+			        smooth: true
+			    }]
+			};
+
+		
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+		
+	}
 	function renderChat(jsonObj){
 		console.log(jsonObj);
+		keys = jsonObj.db0_keys;
+		console.log(keys);
 		
 		// 基于准备好的dom，初始化echarts实例
 		var myChart = echarts.init(document.getElementById('main'));
@@ -327,7 +356,7 @@
 		myChart.setOption(option);
 	}
 	
-	 
+	initChat(); 
 </script>
 									
 
