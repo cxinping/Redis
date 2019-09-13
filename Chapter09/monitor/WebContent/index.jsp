@@ -90,11 +90,11 @@
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div
+											<div 
 												class="text-xs font-weight-bold text-success text-uppercase mb-1">
 												connected clients
 												</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="connected_clients" ></div>
 										</div>
 
 									</div>
@@ -280,8 +280,13 @@
 		 //used_memory
 		console.log(jsonObj);
 		used_memory = jsonObj.Memory_used_memory;
-		console.log(used_memory);		
+		connected_clients = jsonObj.Clients_connected_clients ;
+		console.log(connected_clients);		
+		
 		document.getElementById('used_memory').innerHTML = used_memory + " M";
+		document.getElementById('connected_clients').innerHTML = connected_clients ;
+		
+		
 		
 	}
 	
