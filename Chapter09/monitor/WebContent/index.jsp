@@ -329,7 +329,8 @@
 	function renderChat(jsonObj){
 		console.log(jsonObj);
 		keys = jsonObj.db0_keys;
-		console.log(keys);
+		time = jsonObj.time;
+		console.log(keys, time);
 		
 	}
 	
