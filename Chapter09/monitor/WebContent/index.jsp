@@ -294,8 +294,8 @@
 		document.getElementById('CPU_used_cpu_user').innerHTML = CPU_used_cpu_user ;		
 	}
 	
-	var time = [];
-	var data =[];
+	var time_arr = [];
+	var data_arr =[];
 	
 	function initChat(){
 		// 基于准备好的dom，初始化echarts实例
@@ -309,13 +309,13 @@
 				tooltip : {},
 			    xAxis: {
 			        type: 'category',
-			        data: time
+			        data: time_arr
 			    },
 			    yAxis: {
 			        type: 'value'
 			    },
 			    series: [{
-			        data: data,
+			        data: data_arr,
 			        type: 'line',
 			        smooth: true
 			    }]
@@ -330,8 +330,18 @@
 		console.log(jsonObj);
 		keys = jsonObj.db0_keys;
 		time = jsonObj.time;
-		console.log(keys, time);
+		//console.log(keys, time);
 		
+		time_arr.push(time)
+		data_arr.push(keys);
+		
+		if (time_arr.length < 5) {
+			console.log('aaaaaaaa');
+			
+		}
+		console.log(time_arr.length);
+		
+		initChat();
 	}
 	
 	initChat(); 
