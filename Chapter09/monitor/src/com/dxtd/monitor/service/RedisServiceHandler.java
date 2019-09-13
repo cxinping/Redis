@@ -19,24 +19,9 @@ public class RedisServiceHandler implements Runnable {
 		this.webSocket = webSocket;
 	}
 	
-	public void run() {
-		
-		while(true){
-			            
+	public void run() {		
+		while(true){			            
     		try {
-//    			RedisService redisService = new RedisService();
-//        		RedisUtil redisUtil = new RedisUtil();
-//        		String info = redisUtil.getRedisInfo();
-//        		// redis 内存实时占用情况
-//        		RedisInfoDetail memoryDetail = redisService.getRedisInfo(info, "used_memory_human");
-//        		// redis key的实时数量
-//        		RedisInfoDetail keysDetail = redisService.getKeysValue(info);
-//        		List<RedisInfoDetail> details = new ArrayList<RedisInfoDetail>(); 
-//        		details.add(memoryDetail );
-//        		details.add(keysDetail );
-//        		
-//    			//群发消息
-//				webSocket.sendMessage(JSON.toJSONString(details) );
 				
 				MonitorService monitor = new MonitorService();
 				String info = monitor.getInfo();
@@ -49,12 +34,9 @@ public class RedisServiceHandler implements Runnable {
 				e.printStackTrace();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
-			
-			
+			}						
 		}
-		
-		
+				
 	}
 
 }
