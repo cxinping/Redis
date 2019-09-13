@@ -76,7 +76,7 @@
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												 used memory												
 												</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800" id="used_memory"></div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="Memory_used_memory"></div>
 										</div>
 
 									</div>
@@ -94,7 +94,7 @@
 												class="text-xs font-weight-bold text-success text-uppercase mb-1">
 												connected clients
 												</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800" id="connected_clients" ></div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="Clients_connected_clients" ></div>
 										</div>
 
 									</div>
@@ -111,7 +111,7 @@
 											<div	class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 											 used_memory_rss
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="Memory_used_memory_rss"></div>
 										</div>
 									</div>
 								</div>
@@ -279,13 +279,14 @@
 	function renderBoard(jsonObj){
 		 //used_memory
 		console.log(jsonObj);
-		used_memory = jsonObj.Memory_used_memory;
-		connected_clients = jsonObj.Clients_connected_clients ;
-		console.log(connected_clients);		
+		Memory_used_memory = jsonObj.Memory_used_memory;
+		Clients_connected_clients = jsonObj.Clients_connected_clients ;
+		Memory_used_memory_rss = jsonObj.Memory_used_memory_rss;
+		console.log(Memory_used_memory_rss);		
 		
-		document.getElementById('used_memory').innerHTML = used_memory + " M";
-		document.getElementById('connected_clients').innerHTML = connected_clients ;
-		
+		document.getElementById('Memory_used_memory').innerHTML = Memory_used_memory + " M";
+		document.getElementById('Clients_connected_clients').innerHTML = Clients_connected_clients ;
+		document.getElementById('Memory_used_memory_rss').innerHTML = Memory_used_memory_rss + " M" ;
 		
 		
 	}

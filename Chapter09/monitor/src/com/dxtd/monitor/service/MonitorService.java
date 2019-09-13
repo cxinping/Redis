@@ -143,7 +143,7 @@ public class MonitorService {
 		
 		map.put("Memory_used_memory", Tools.transByteToMBSize(Integer.valueOf(mum )) );
 		map.put("Clients_connected_clients", ccc);
-		map.put("Memory_used_memory_rss", mur);
+		map.put("Memory_used_memory_rss", Tools.transByteToMBSize(Integer.valueOf(mur )) );
 		map.put("Stats_total_commands_processed", cmd);
 		map.put("CPU_used_cpu_sys", ucs);
 		map.put("CPU_used_cpu_user", ucu);
