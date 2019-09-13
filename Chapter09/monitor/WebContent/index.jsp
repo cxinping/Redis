@@ -326,11 +326,10 @@
 		myChart.setOption(option);
 		
 	}
-	function renderChat(jsonObj){
-		
+	function renderChat(jsonObj){		
 		keys = jsonObj.db0_keys;
 		time = jsonObj.time;
-		console.log(keys, time);
+		//console.log(keys, time);
 		
 		// 使曲线图中最多显示20个点
 		if (time_arr.length < 5) {			
@@ -345,8 +344,7 @@
 			data_arr[data_arr.length] = keys;			
 		}
 		
-		//console.log(time_arr.length);
-		
+		//console.log(time_arr.length);		
 		initChat();
 	}
 	
