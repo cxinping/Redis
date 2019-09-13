@@ -127,7 +127,7 @@
 											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 												commands processed
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="Stats_total_commands_processed"></div>
 										</div>
 									</div>
 								</div>
@@ -144,7 +144,7 @@
 												class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 												used_cpus_sys
 												</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="CPU_used_cpu_sys"></div>
 										</div>
 									</div>
 								</div>
@@ -160,7 +160,7 @@
 											<div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 												used_cpu_user
 											</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">19</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="CPU_used_cpu_user"></div>
 										</div>
 									</div>
 								</div>
@@ -244,6 +244,7 @@
 		jsonObj = JSON.parse(event.data);
 		//console.log(jsonObj);
 		renderBoard(jsonObj);
+		renderChat(jsonObj);
 	}
 
 	function trim(x) {
@@ -276,22 +277,28 @@
 		websocket.send(message);
 	}
 	
-	function renderBoard(jsonObj){
-		 //used_memory
-		console.log(jsonObj);
+	function renderBoard(jsonObj){		
+		//console.log(jsonObj);
 		Memory_used_memory = jsonObj.Memory_used_memory;
 		Clients_connected_clients = jsonObj.Clients_connected_clients ;
 		Memory_used_memory_rss = jsonObj.Memory_used_memory_rss;
-		console.log(Memory_used_memory_rss);		
+		Stats_total_commands_processed = jsonObj.Stats_total_commands_processed;
+		CPU_used_cpu_sys = jsonObj.CPU_used_cpu_sys;
+		CPU_used_cpu_user = jsonObj.CPU_used_cpu_user;
 		
 		document.getElementById('Memory_used_memory').innerHTML = Memory_used_memory + " M";
 		document.getElementById('Clients_connected_clients').innerHTML = Clients_connected_clients ;
 		document.getElementById('Memory_used_memory_rss').innerHTML = Memory_used_memory_rss + " M" ;
+		document.getElementById('Stats_total_commands_processed').innerHTML = Stats_total_commands_processed ;
 		
+		document.getElementById('CPU_used_cpu_sys').innerHTML = CPU_used_cpu_sys ;
+		document.getElementById('CPU_used_cpu_user').innerHTML = CPU_used_cpu_user ;
 		
 	}
 	
-	function renderChat(){
+	function renderChat(jsonObj){
+		console.log(jsonObj);
+		
 		// 基于准备好的dom，初始化echarts实例
 		var myChart = echarts.init(document.getElementById('main'));
 
