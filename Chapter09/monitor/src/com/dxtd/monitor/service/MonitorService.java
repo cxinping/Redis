@@ -3,7 +3,10 @@ package com.dxtd.monitor.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.tools.Tool;
+
 import com.dxtd.monitor.util.RedisUtil;
+import com.dxtd.monitor.util.Tools;
 
 import redis.clients.jedis.Jedis;
 
@@ -78,7 +81,7 @@ public class MonitorService {
 
 			int index = line.indexOf(':');
 			if (index >= 0) {
-				infoMap.put(part + "." + line.substring(0, index), line.substring(index + 1));
+				infoMap.put(part + "_" + line.substring(0, index), line.substring(index + 1));
 			}
 		}
 
@@ -88,27 +91,27 @@ public class MonitorService {
 	public void transData(String infoContent) {
 		Map<String, String> infoMap = parseInfo(infoContent);
 		// 内核空间占用CPU百分比
-		String ucs = getStringValue(infoMap, "CPU.used_cpu_sys");
+		String ucs = getStringValue(infoMap, "CPU_used_cpu_sys");
 		// 用户空间占用CPU百分比
-		String ucu = getStringValue(infoMap, "CPU.used_cpu_user");
+		String ucu = getStringValue(infoMap, "CPU_used_cpu_user");
 		// 阻塞客户端数量
-		String cbc = getStringValue(infoMap, "Clients.blocked_clients");
+		String cbc = getStringValue(infoMap, "Clients_blocked_clients");
 		// 连接客户端数量
-		String ccc = getStringValue(infoMap, "Clients.connected_clients");
+		String ccc = getStringValue(infoMap, "Clients_connected_clients");
 		// 使用总内存
-		String mum = getStringValue(infoMap, "Memory.used_memory");
+		String mum = getStringValue(infoMap, "Memory_used_memory");
 		// 使用物理内存
-		String mur = getStringValue(infoMap, "Memory.used_memory_rss");
+		String mur = getStringValue(infoMap, "Memory_used_memory_rss");
 		// 运行以来执行过的命令的总数量
-		String cmd = getStringValue(infoMap, "Stats.total_commands_processed");
+		String cmd = getStringValue(infoMap, "Stats_total_commands_processed");
 		// 每秒过期key数量
-		String exp = getStringValue(infoMap, "Stats.expired_keys");
+		String exp = getStringValue(infoMap, "Stats_expired_keys");
 		// 每秒淘汰key数量
-		String evt = getStringValue(infoMap, "Stats.evicted_keys");
+		String evt = getStringValue(infoMap, "Stats_evicted_keys");
 		// 每秒命中数量
-		String hit = getStringValue(infoMap, "Stats.keyspace_hits");
+		String hit = getStringValue(infoMap, "Stats_keyspace_hits");
 		// 每秒丢失数量
-		String mis = getStringValue(infoMap, "Stats.keyspace_misses");
+		String mis = getStringValue(infoMap, "Stats_keyspace_misses");
 
 		Integer db0keysNum = getKeys(infoContent, "db0:keys");
 
@@ -125,27 +128,27 @@ public class MonitorService {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, String> infoMap = parseInfo(infoContent);
 		// 使用总内存
-		String mum = getStringValue(infoMap, "Memory.used_memory");
+		String mum = getStringValue(infoMap, "Memory_used_memory");
 		// 连接客户端数量
-		String ccc = getStringValue(infoMap, "Clients.connected_clients");
+		String ccc = getStringValue(infoMap, "Clients_connected_clients");
 		// 使用物理内存
-		String mur = getStringValue(infoMap, "Memory.used_memory_rss");
+		String mur = getStringValue(infoMap, "Memory_used_memory_rss");
 		// 运行以来执行过的命令的总数量
-		String cmd = getStringValue(infoMap, "Stats.total_commands_processed");
+		String cmd = getStringValue(infoMap, "Stats_total_commands_processed");
 		// 内核空间占用CPU百分比
-		String ucs = getStringValue(infoMap, "CPU.used_cpu_sys");
+		String ucs = getStringValue(infoMap, "CPU_used_cpu_sys");
 		// 用户空间占用CPU百分比
-		String ucu = getStringValue(infoMap, "CPU.used_cpu_user");
+		String ucu = getStringValue(infoMap, "CPU_used_cpu_user");
 		Integer db0keysNum = getKeys(infoContent, "db0:keys");
 		
-		map.put("Memory.used_memory", mum);
-		map.put("Clients.connected_clients", ccc);
-		map.put("Memory.used_memory_rss", mur);
-		map.put("Stats.total_commands_processed", cmd);
-		map.put("CPU.used_cpu_sys", ucs);
-		map.put("CPU.used_cpu_user", ucu);
+		map.put("Memory_used_memory", Tools.transByteToMBSize(Integer.valueOf(mum )) );
+		map.put("Clients_connected_clients", ccc);
+		map.put("Memory_used_memory_rss", mur);
+		map.put("Stats_total_commands_processed", cmd);
+		map.put("CPU_used_cpu_sys", ucs);
+		map.put("CPU_used_cpu_user", ucu);
 		map.put("db0:keys", db0keysNum+"");
-		
+		map.put("time", Tools.getCurrntTime());
 		return map;
 	}
 

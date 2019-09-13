@@ -76,7 +76,7 @@
 												class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 												 used memory												
 												</div>
-											<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800" id="used_memory"></div>
 										</div>
 
 									</div>
@@ -240,13 +240,10 @@
 	}
 
 	//接收到消息的回调方法
-	websocket.onmessage = function(event) {
-		//setMessageInnerHTML(event.data);
-		//console.log(event.data);
-
+	websocket.onmessage = function(event) {		
 		jsonObj = JSON.parse(event.data);
-		console.log(jsonObj);
-		//render(jsonObj);
+		//console.log(jsonObj);
+		renderBoard(jsonObj);
 	}
 
 	function trim(x) {
@@ -279,7 +276,16 @@
 		websocket.send(message);
 	}
 	
-	function render(){
+	function renderBoard(jsonObj){
+		 //used_memory
+		console.log(jsonObj);
+		used_memory = jsonObj.Memory_used_memory;
+		console.log(used_memory);		
+		document.getElementById('used_memory').innerHTML = used_memory + " M";
+		
+	}
+	
+	function renderChat(){
 		// 基于准备好的dom，初始化echarts实例
 		var myChart = echarts.init(document.getElementById('main'));
 
@@ -308,7 +314,7 @@
 		myChart.setOption(option);
 	}
 	
-	render();
+	renderChat();
 </script>
 									
 
