@@ -9,8 +9,7 @@ public class HelloWorldController {
     // http://localhost:8080/hello
     @RequestMapping("/hello")
     public String index() {
-
-        return "Hello World spring boot bbb 333";
+        return "Hello spring boot";
     }
 
 
