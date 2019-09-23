@@ -9,7 +9,7 @@ import redis.clients.jedis.JedisCluster;
 
 import static sun.management.jmxremote.ConnectorBootstrap.PropertyNames.HOST;
 
-public class RedisCLusterDemo {
+public class RedisClusterDemo {
 
     public static void testJedisCluster()  {
         HashSet<HostAndPort> nodes = new HashSet<HostAndPort>();
