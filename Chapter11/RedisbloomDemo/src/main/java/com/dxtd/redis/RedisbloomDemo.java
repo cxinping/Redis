@@ -6,7 +6,7 @@ public class RedisbloomDemo {
     public static void main(String[] args) {
         String userIdBloomKey = "userid";
         // 创建客户端，jedis实例
-        Client client = new Client("localhost", 6378);
+        Client client = new Client("192.168.11.12", 6378);
 
         // 创建一个有初始值和出错率的过滤器
         client.createFilter(userIdBloomKey,100000,0.01);
