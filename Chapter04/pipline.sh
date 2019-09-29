@@ -1,0 +1,1 @@
+(echo -en "PING\r\n SET db redis\r\nGET db\r\nINCR visitor\r\nINCR visitor\r\nINCR visitor\r\n"; sleep 10) | nc localhost 6379
