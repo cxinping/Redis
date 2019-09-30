@@ -10,8 +10,5 @@ public class RedisDemo {
         String name = jedis.get("name");
         System.out.println(name);
         jedis.close();
-
     }
-
-
 }
