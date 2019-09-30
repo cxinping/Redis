@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class RedisController {
@@ -14,9 +16,13 @@ public class RedisController {
 
     @RequestMapping("/redis/setAndGet")
     @ResponseBody
-    public String setAndGetValue(String name,String value){
+    public Map setAndGetValue(String name, String value){
+        System.out.println( redisTemplate );
         redisTemplate.opsForValue().set(name,value);
-        return (String) redisTemplate.opsForValue().get(name);
+        Map result = new HashMap();
+        String getValue =  (String) redisTemplate.opsForValue().get(name);
+        result.put(name ,getValue);
+        return result;
     }
 
 }
