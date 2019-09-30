@@ -38,7 +38,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JedisPoolDemo">
+  <component name="RunManager" selected="Application.RedisDemo">
     <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
       <module name="JedisDemo1" />
@@ -87,9 +87,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisDemo" />
         <item itemvalue="Application.JedisPoolDemo" />
         <item itemvalue="Application.JedisPoolUtils" />
-        <item itemvalue="Application.RedisDemo" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
