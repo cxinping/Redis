@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/PersonRedisTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +134,7 @@
       <workItem from="1568173117853" duration="3672000" />
       <workItem from="1569865625959" duration="32000" />
       <workItem from="1569865680994" duration="1113000" />
-      <workItem from="1569905866237" duration="7901000" />
+      <workItem from="1569905866237" duration="8825000" />
     </task>
     <servers />
   </component>

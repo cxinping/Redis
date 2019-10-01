@@ -46,11 +46,27 @@ public class RedisTransDemo
         jedis.disconnect();
     }
 
+    public static  void jedisCombPipelineTrans() {
+        Jedis jedis = new Jedis("localhost");
+        long start = System.currentTimeMillis();
+        Pipeline pipeline = jedis.pipelined();
+        pipeline.multi();
+        for (int i = 0; i < 100000; i++) {
+            pipeline.set("" + i, "" + i);
+        }
+        pipeline.exec();
+        List<Object> results = pipeline.syncAndReturnAll();
+        long end = System.currentTimeMillis();
+        System.out.println("Pipelined transaction: " + ((end - start) / 1000.0) + " seconds");
+        jedis.disconnect();
+    }
+
 
     public static void main(String[] args){
         //jedisNormal();
         //jedisTrans();
-        jedisPipelined();
+        //jedisPipelined();
+        jedisCombPipelineTrans();
 
     }
 
