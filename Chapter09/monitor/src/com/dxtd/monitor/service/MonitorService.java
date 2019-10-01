@@ -2,16 +2,13 @@ package com.dxtd.monitor.service;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.tools.Tool;
-
 import com.dxtd.monitor.util.RedisUtil;
 import com.dxtd.monitor.util.Tools;
-
 import redis.clients.jedis.Jedis;
 
 public class MonitorService {
-
+	//调用info 命令
 	public String getInfo() {
 		String infoContent = null;
 		Jedis jedis = null;
@@ -67,6 +64,7 @@ public class MonitorService {
 		return keysNumValue;
 	}
 
+	//解析结果
 	public Map parseInfo(String content) {
 		String[] lines = content.split("\n");
 		Map infoMap = new HashMap();
@@ -90,6 +88,7 @@ public class MonitorService {
 		return infoMap;
 	}
 
+	//数据转换处理
 	public void transData(String infoContent) {
 		Map<String, String> infoMap = parseInfo(infoContent);
 		// 内核空间占用CPU百分比
