@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/ImageRedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/ImageRedisTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +43,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Base64ImageUtils">
+  <component name="RunManager" selected="Application.ImageRedisTest">
     <configuration name="Base64ImageUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.Base64ImageUtils" />
       <module name="JedisDemo1" />
@@ -57,8 +57,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
+    <configuration name="ImageRedisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.ImageRedisTest" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -70,8 +70,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JedisPoolUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolUtils" />
+    <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -111,11 +111,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ImageRedisTest" />
         <item itemvalue="Application.Base64ImageUtils" />
         <item itemvalue="Application.RedisDemo2" />
         <item itemvalue="Application.JedisPoolDemo" />
         <item itemvalue="Application.RedisDemo" />
-        <item itemvalue="Application.JedisPoolUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +132,7 @@
       <workItem from="1568173117853" duration="3672000" />
       <workItem from="1569865625959" duration="32000" />
       <workItem from="1569865680994" duration="1113000" />
-      <workItem from="1569905866237" duration="3730000" />
+      <workItem from="1569905866237" duration="3999000" />
     </task>
     <servers />
   </component>
