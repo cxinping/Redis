@@ -20,10 +20,10 @@ public class JedisPoolDemo {
             //获取连接资源
             Jedis resource = jedisPool.getResource();
             //放值：
-            resource.set("key", "hello redis");
+            resource.set("name", "hello redis");
             //取值：
-            String key = resource.get("key");
-            System.out.println("key=" + key);
+            String name = resource.get("name");
+            System.out.println("name=" + name);
         }
 
 
