@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/ImageRedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/ImageRedisTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/PersonRedisTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +45,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ImageRedisTest">
+  <component name="RunManager" selected="Application.RedisTransDemo">
     <configuration name="Base64ImageUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.Base64ImageUtils" />
       <module name="JedisDemo1" />
@@ -70,21 +72,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
-      <module name="JedisDemo1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dxtd.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RedisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo" />
+    <configuration name="PersonRedisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.PersonRedisTest" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -109,13 +98,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisTransDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisTransDemo" />
+      <module name="JedisDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dxtd.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisTransDemo" />
+        <item itemvalue="Application.PersonRedisTest" />
         <item itemvalue="Application.ImageRedisTest" />
         <item itemvalue="Application.Base64ImageUtils" />
         <item itemvalue="Application.RedisDemo2" />
-        <item itemvalue="Application.JedisPoolDemo" />
-        <item itemvalue="Application.RedisDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +134,7 @@
       <workItem from="1568173117853" duration="3672000" />
       <workItem from="1569865625959" duration="32000" />
       <workItem from="1569865680994" duration="1113000" />
-      <workItem from="1569905866237" duration="3999000" />
+      <workItem from="1569905866237" duration="7901000" />
     </task>
     <servers />
   </component>
