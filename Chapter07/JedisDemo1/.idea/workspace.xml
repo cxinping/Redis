@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisTransDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" afterDir="false" />
-    </list>
+    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +24,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Chapter09/monitor" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -135,6 +131,7 @@
       <workItem from="1569865625959" duration="32000" />
       <workItem from="1569865680994" duration="1113000" />
       <workItem from="1569905866237" duration="8825000" />
+      <workItem from="1569932392784" duration="23000" />
     </task>
     <servers />
   </component>
