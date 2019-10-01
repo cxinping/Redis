@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/JedisPoolDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/JedisPoolDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/JedisPoolDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/JedisPoolDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +40,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JedisPoolDemo">
+  <component name="RunManager" selected="Application.RedisDemo2">
     <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
       <module name="JedisDemo1" />
@@ -82,6 +80,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisDemo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo2" />
+      <module name="JedisDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dxtd.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="JedisDemo1" />
@@ -91,6 +102,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisDemo2" />
         <item itemvalue="Application.JedisPoolDemo" />
         <item itemvalue="Application.RedisDemo" />
         <item itemvalue="Application.JedisPoolUtils" />
@@ -111,7 +123,7 @@
       <workItem from="1568173117853" duration="3672000" />
       <workItem from="1569865625959" duration="32000" />
       <workItem from="1569865680994" duration="1113000" />
-      <workItem from="1569905866237" duration="235000" />
+      <workItem from="1569905866237" duration="771000" />
     </task>
     <servers />
   </component>
