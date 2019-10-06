@@ -25,7 +25,6 @@ SessionPort:<%=request.getServerPort()%>
   //为了区分，第二个可以是222
   out.println("This is Tomcat Server 111");
 
-
   Object obj = session.getAttribute("counter");
   if( null == obj){
     session.setAttribute("counter" , new Integer(1));
