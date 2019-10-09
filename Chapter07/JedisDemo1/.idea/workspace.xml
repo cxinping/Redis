@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="" />
+    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,16 +20,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\work_software\maven_jars" />
+        <option name="mavenHome" value="D:/work_software/maven" />
+        <option name="userSettingsFile" value="D:\work_software\maven\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1QfsipWdn9sXtivF7hrzaDqF3Xb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Chapter09/monitor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -41,7 +53,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RedisTransDemo">
+  <component name="RunManager" selected="Application.RedisDemo">
     <configuration name="Base64ImageUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.Base64ImageUtils" />
       <module name="JedisDemo1" />
@@ -81,8 +93,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisDemo2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo2" />
+    <configuration name="RedisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -109,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisDemo" />
         <item itemvalue="Application.RedisTransDemo" />
         <item itemvalue="Application.PersonRedisTest" />
         <item itemvalue="Application.ImageRedisTest" />
         <item itemvalue="Application.Base64ImageUtils" />
-        <item itemvalue="Application.RedisDemo2" />
       </list>
     </recent_temporary>
   </component>
@@ -132,6 +144,7 @@
       <workItem from="1569865680994" duration="1113000" />
       <workItem from="1569905866237" duration="8825000" />
       <workItem from="1569932392784" duration="23000" />
+      <workItem from="1570585467450" duration="1740000" />
     </task>
     <servers />
   </component>
