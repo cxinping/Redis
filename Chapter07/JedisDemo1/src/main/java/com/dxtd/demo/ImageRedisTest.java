@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import redis.clients.jedis.Jedis;
 
-
 public class ImageRedisTest {
 
     private static Jedis jedis = null;

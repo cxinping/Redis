@@ -1,7 +1,6 @@
 package com.dxtd.demo;
 
 import redis.clients.jedis.Jedis;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -113,7 +112,6 @@ public class RedisDemo2 {
         //testList();
         //testSet();
         testSort();
-
     }
 
 }
