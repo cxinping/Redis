@@ -21,7 +21,7 @@ public class RedisController {
     @RequestMapping("/redis/setAndGet")
     @ResponseBody
     public Map setAndGetValue(String name, String value){
-        System.out.println( redisTemplate );
+        System.out.println( "name="+ name + ",value=" + value );
         redisTemplate.opsForValue().set(name,value);
         Map result = new HashMap();
         String getValue =  (String) redisTemplate.opsForValue().get(name);
