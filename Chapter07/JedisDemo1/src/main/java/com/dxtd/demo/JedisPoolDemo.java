@@ -17,14 +17,25 @@ public class JedisPoolDemo {
             jpc.setMaxTotal(50);
             //创建连接池对象  host:连接redis主机IP ；port:redis的默认端口
             JedisPool jedisPool = new JedisPool(jpc, "127.0.0.1", 6379);
-            //获取连接资源
-            Jedis resource = jedisPool.getResource();
-            //放值：
-            resource.set("name", "hello redis");
-            //取值：
-            String name = resource.get("name");
-            System.out.println("name=" + name);
-        }
+            Jedis resource = null;
+            try{
 
+                //获取连接资源
+                resource = jedisPool.getResource();
+                //放值：
+                resource.set("name", "hello redis");
+                //取值：
+                String name = resource.get("name");
+                System.out.println("name=" + name);
+            }catch(Exception e){
+                e.printStackTrace();
+            }finally {
+                if (resource != null) {
+                    //这里使用的close不代表关闭连接，指的是归还资源
+                    jedisPool.close();
+                }
+            }
+
+        }
 
 }
