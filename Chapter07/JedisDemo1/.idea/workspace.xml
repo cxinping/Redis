@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="" />
+    <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/Base64ImageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/Base64ImageUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/ImageRedisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/ImageRedisTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisTransDemo.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JedisPoolDemo">
-    <configuration name="ImageRedisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.ImageRedisTest" />
-      <module name="JedisDemo1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dxtd.demo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.TestSNS">
     <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
       <module name="JedisDemo1" />
@@ -78,8 +71,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonRedisTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.PersonRedisTest" />
+    <configuration name="RedisClusterDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisClusterDemo" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -117,13 +110,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestSNS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.TestSNS" />
+      <module name="JedisDemo1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dxtd.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestSNS" />
+        <item itemvalue="Application.RedisClusterDemo" />
+        <item itemvalue="Application.RedisTransDemo" />
         <item itemvalue="Application.JedisPoolDemo" />
         <item itemvalue="Application.RedisDemo" />
-        <item itemvalue="Application.RedisTransDemo" />
-        <item itemvalue="Application.PersonRedisTest" />
-        <item itemvalue="Application.ImageRedisTest" />
       </list>
     </recent_temporary>
   </component>
@@ -144,6 +150,7 @@
       <workItem from="1569932392784" duration="23000" />
       <workItem from="1570585467450" duration="6574000" />
       <workItem from="1570624968519" duration="680000" />
+      <workItem from="1570763858917" duration="3116000" />
     </task>
     <servers />
   </component>
