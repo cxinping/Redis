@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JedisDemo1" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -39,7 +42,7 @@
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -149,6 +152,22 @@
       <workItem from="1570763858917" duration="3116000" />
       <workItem from="1572626166485" duration="96000" />
       <workItem from="1572626283999" duration="51000" />
+      <workItem from="1579809171832" duration="208000" />
+      <workItem from="1579809504305" duration="587000" />
+      <workItem from="1579810268376" duration="24000" />
+      <workItem from="1579810311690" duration="140000" />
+      <workItem from="1579810595597" duration="130000" />
+      <workItem from="1579810761316" duration="24000" />
+      <workItem from="1579811306904" duration="91000" />
+      <workItem from="1579811446416" duration="25000" />
+      <workItem from="1579811552283" duration="6000" />
+      <workItem from="1579811847471" duration="5000" />
+      <workItem from="1579811881233" duration="15000" />
+      <workItem from="1579811922978" duration="206000" />
+      <workItem from="1579812208182" duration="30000" />
+      <workItem from="1579812260818" duration="321000" />
+      <workItem from="1579812617481" duration="518000" />
+      <workItem from="1579813163241" duration="53000" />
     </task>
     <servers />
   </component>
