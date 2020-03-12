@@ -62,7 +62,7 @@ Redis作为一个流行的key-value内存数据库 ，由于性能高，数据�
 
 打赏通道
 =========
-<img src="http://47.93.212.169/files/attachments/1320326508052544/s" width="50%" >
+<img src="https://images.cnblogs.com/cnblogs_com/wangshuo1/857745/o_alipay.png" width="50%" >
 
 
 
