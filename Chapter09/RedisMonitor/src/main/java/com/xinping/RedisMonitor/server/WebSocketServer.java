@@ -1,20 +1,16 @@
 package com.xinping.RedisMonitor.server;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.xinping.RedisMonitor.service.RedisServiceHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
-
 import javax.websocket.*;
-import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@ServerEndpoint("/websocket/{userId}")
+@ServerEndpoint("/websocket")
 @Component
 public class WebSocketServer {
 
@@ -26,40 +22,27 @@ public class WebSocketServer {
     private static AtomicInteger onlineCount = new AtomicInteger(0);
 
     /**
-     * 用来存放每个客户端对应的 WebSocketServer 对象
+     * concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。若要实现服务端与单一客户端通信的话，可以使用Map来存放，其中Key可以为用户标识
      */
-    private static ConcurrentHashMap<String, WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+    private static CopyOnWriteArraySet<WebSocketServer> webSocketSet = new CopyOnWriteArraySet<WebSocketServer>();
 
     /**
      * 与某个客户端的连接会话，需要通过它来给客户端发送数据
      */
     private Session session;
 
-    /**
-     * 接收 userId
-     */
-    private String userId = "";
+    private Thread queryThread = null;
 
     /**
      * 连接建立成功调用的方法
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam("userId") String userId) {
+    public void onOpen(Session session) {
         this.session = session;
-        this.userId = userId;
-        if (webSocketMap.containsKey(userId)) {
-            webSocketMap.remove(userId);
-            webSocketMap.put(userId, this);
-        } else {
-            webSocketMap.put(userId, this);
-            addOnlineCount();
-        }
-        log.info("用户连接:" + userId + ",当前在线人数为:" + getOnlineCount());
-        try {
-            sendMessage("连接成功！");
-        } catch (IOException e) {
-            log.error("用户:" + userId + ",网络异常!!!!!!");
-        }
+
+        webSocketSet.add(this); // 加入set中
+        addOnlineCount(); // 在线数加1
+        log.info("有新连接加入！当前在线人数为" + getOnlineCount());
     }
 
     /**
@@ -67,11 +50,15 @@ public class WebSocketServer {
      */
     @OnClose
     public void onClose() {
-        if (webSocketMap.containsKey(userId)) {
-            webSocketMap.remove(userId);
-            subOnlineCount();
+        webSocketSet.remove(this); // 从set中删除
+        subOnlineCount(); // 在线数减1
+        log.info("有一连接关闭！当前在线人数为" + getOnlineCount());
+    }
+
+    public void closeQueryThread() {
+        if (null != queryThread) {
+            queryThread.interrupt();
         }
-        log.info("用户退出:" + userId + ",当前在线人数为:" + getOnlineCount());
     }
 
     /**
@@ -81,21 +68,11 @@ public class WebSocketServer {
      */
     @OnMessage
     public void onMessage(String message, Session session) {
-        log.info("用户消息:" + userId + ",报文:" + message);
-        if (!StringUtils.isEmpty(message)) {
-            try {
-                JSONObject jsonObject = JSON.parseObject(message);
-                jsonObject.put("fromUserId", this.userId);
-                String toUserId = jsonObject.getString("toUserId");
-                if (!StringUtils.isEmpty(toUserId) && webSocketMap.containsKey(toUserId)) {
-                    webSocketMap.get(toUserId).sendMessage(jsonObject.toJSONString());
-                } else {
-                    log.error("请求的 userId:" + toUserId + "不在该服务器上");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        log.info("来自客户端的消息:" + message);
+
+        RedisServiceHandler handler = new RedisServiceHandler(this);
+        queryThread = new Thread(handler);
+        queryThread.start();
     }
 
     /**
@@ -106,7 +83,7 @@ public class WebSocketServer {
      */
     @OnError
     public void onError(Session session, Throwable error) {
-        log.error("用户错误:" + this.userId + ",原因:" + error.getMessage());
+        log.error("发生错误原因:" + error.getMessage());
         error.printStackTrace();
     }
 
@@ -114,7 +91,8 @@ public class WebSocketServer {
      * 实现服务器主动推送
      */
     public void sendMessage(String message) throws IOException {
-        this.session.getBasicRemote().sendText(message);
+        if (this.session.isOpen())
+            this.session.getBasicRemote().sendText(message);
     }
 
     public static synchronized AtomicInteger getOnlineCount() {
