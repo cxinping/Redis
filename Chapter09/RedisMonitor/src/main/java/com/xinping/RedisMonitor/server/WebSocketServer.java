@@ -41,8 +41,8 @@ public class WebSocketServer {
         this.session = session;
 
         webSocketSet.add(this); // 加入set中
-        addOnlineCount(); // 在线数加1
-        log.info("有新连接加入！当前在线人数为" + getOnlineCount());
+        addOnlineCount(); // 在线连接数加1
+        log.info("有新连接加入！当前在线连接数为" + getOnlineCount());
     }
 
     /**
@@ -51,8 +51,8 @@ public class WebSocketServer {
     @OnClose
     public void onClose() {
         webSocketSet.remove(this); // 从set中删除
-        subOnlineCount(); // 在线数减1
-        log.info("有一连接关闭！当前在线人数为" + getOnlineCount());
+        subOnlineCount(); // 在线连接数减1
+        log.info("有一连接关闭！当前在线连接数为" + getOnlineCount());
     }
 
     public void closeQueryThread() {
@@ -99,10 +99,16 @@ public class WebSocketServer {
         return onlineCount;
     }
 
+    /**
+     * 在线连接数加1
+     */
     public static synchronized void addOnlineCount() {
         WebSocketServer.onlineCount.getAndIncrement();
     }
 
+    /**
+     * 在线连接数减1
+     */
     public static synchronized void subOnlineCount() {
         WebSocketServer.onlineCount.getAndDecrement();
     }
