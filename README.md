@@ -54,9 +54,12 @@ Redis作为一个流行的key-value内存数据库 ，由于性能高，数据�
 本书中涉及的软件下载链接如下所示：
 
 - 1.2.1	在Windows下安装Redis
+
 Redis的Windows版本下载链接
 https://github.com/MicrosoftArchive/redis
 
+本节中使用的是基于Windows 64位版本下的Redis安装包,Redis安装包的下载地址:
+https://github.com/MSOpenTech/Redis/releases
 
 
 写书进度
