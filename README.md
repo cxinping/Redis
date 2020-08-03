@@ -131,9 +131,13 @@ redis-stat开源地址为：https://github.com/junegunn/redis-stat
 
 安装 redis-stat时，redis-stat 的使用需要依赖Ruby环境，但JRuby为我们提供了使用Java的打开方式。从https://github.com/junegunn/redis-stat/releases下载redis-stat-0.4.14.jar文件
 
+- 9.2.1	前端页面
 
+start bootstrap Admin2的官方地址和github地址如下所示。
 
+官方地址：http://startbootstrap.com/template-overviews/sb-admin-2/ 
 
+github地址： https://github.com/IronSummitMedia/startbootstrap-sb-admin-2
 
 
 
