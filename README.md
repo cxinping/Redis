@@ -100,7 +100,7 @@ Jedis参考文档是http://jedis.mklab.cn/
 
 - 7.2.7	Redis存储图片
 
-访问网页 https://graph.baidu.com/thumb/691874602,911901597.jpg，可以看到一只可爱的小熊猫图片，我们要把这张图片保存在Redis中。
+访问网页 https://graph.baidu.com/thumb/691874602,911901597.jpg 可以看到一只可爱的小熊猫图片，我们要把这张图片保存在Redis中。
 
 - 7.6.3	安装服务器 Tomcat和反向代理服务器Nginx
 
