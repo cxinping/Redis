@@ -49,6 +49,14 @@ Redis作为一个流行的key-value内存数据库 ，由于性能高，数据�
 第11章  扩展知识，
 本书设计的技术知识内容比较多，所以把读者需要掌握的内容单独汇聚成一张，包括CentOS的配置，Maven基础知识，配置Intellij IDEA，配置SecureCRT,Chrome常用技巧和Python 3操作Redis 5集群。
 
+本书涉及的链接
+=========
+本书中涉及的软件下载链接如下所示：
+
+-1.2.1	在Windows下安装Redis
+Redis的Windows版本下载链接
+https://github.com/MicrosoftArchive/redis
+
 
 
 写书进度
@@ -61,9 +69,7 @@ Redis作为一个流行的key-value内存数据库 ，由于性能高，数据�
 
 - 2020年4月7日本书稿件第三版修改完成。
 
-打赏通道
-=========
-![](https://images.cnblogs.com/cnblogs_com/wangshuo1/857745/o_alipay.png)
+
 
 
 
