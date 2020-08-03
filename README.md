@@ -94,6 +94,35 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
 
 Tomcat官网地址：http://tomcat.apache.org/ 
 
+- 7.2.1	连接Redis的两种方式
+
+Jedis参考文档是http://jedis.mklab.cn/
+
+- 7.2.7	Redis存储图片
+
+访问网页 https://graph.baidu.com/thumb/691874602,911901597.jpg，可以看到一只可爱的小熊猫图片，我们要把这张图片保存在Redis中。
+
+- 7.6.3	安装服务器 Tomcat和反向代理服务器Nginx
+
+JDK的下载地址是 https://www.oracle.com/technetwork/java/javase/downloads 。
+
+在Tomcat的官网 https://tomcat.apache.org/download-70.cgi ,下载Tomcat7的Linux版本压缩包apache-tomcat-7.0.96.tar.gz。
+
+Nginx的官网地址是http://nginx.org 
+
+- 7.6.5	配置Tomcat 使用Redis作为Session管理
+
+下载最新的Jedis（一个Redis 的Java客户端），Tomcat Redis Session Manager 和 Apache Commons Pool， 把 jedis-3.1.0.jar ， tomcat-redis-session-manager1.2.jar ， commons-pool2-2.0.jar复制到 Tomcat7/lib目录下。各个组件的下载地址是：
+
+JRedis :  https://github.com/xetorthio/jedis
+
+Tomcat Redis Session Manager ：https://github.com/jcoleman/tomcat-redis-session-manager/downloads
+
+Apache Commons Pool: http://commons.apache.org/proper/commons-pool/download_  pool.cgi
+
+- 8.1.1	Spring Boot 简介
+
+Spring Boot官网上的文档质量很高，如果想快速理解SpringBoot的话，浏览官网网页是最快捷的途径，参考网址是：http://spring.io/guides/gs/rest-service/ 。
 
 
 
