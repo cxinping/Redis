@@ -129,7 +129,7 @@ Spring Boot官网上的文档质量很高，如果想快速理解SpringBoot的�
 
 redis-stat开源地址为：https://github.com/junegunn/redis-stat
 
-安装 redis-stat时，redis-stat 的使用需要依赖Ruby环境，但JRuby为我们提供了使用Java的打开方式。从https://github.com/junegunn/redis-stat/releases 下载redis-stat-0.4.14.jar文件
+安装 redis-stat时，redis-stat 的使用需要依赖Ruby环境，但JRuby为我们提供了使用Java的打开方式。从https://github.com/junegunn/redis-stat/releases  下载redis-stat-0.4.14.jar文件
 
 - 9.2.1	前端页面
 
