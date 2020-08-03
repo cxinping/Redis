@@ -62,11 +62,16 @@ Redis的官方网站是： http://Redis.io/ , 最新版本的Redis安装包是Re
 
 - 1.2.1	在Windows下安装Redis
 
-Redis的Windows版本下载链接
+Redis的Windows版本下载链接：
 https://github.com/MicrosoftArchive/redis
 
 本节中使用的是基于Windows 64位版本下的Redis安装包,Redis安装包的下载地址:
 https://github.com/MSOpenTech/Redis/releases
+
+- 1.3	Redis可视化工具 
+
+RedisDesktopManager官网地址如下：
+https://redisdesktop.com/download
 
 
 
