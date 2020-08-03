@@ -141,6 +141,14 @@ github地址： https://github.com/IronSummitMedia/startbootstrap-sb-admin-2
 
 ECharts官网可以访问 http://echarts.baidu.com/
 
+ECharts的官网例子,请参考以下页面。
+http://echarts.baidu.com/echarts2/doc/example.html
+
+如果需要定制复杂的图形，可以参考EChartsAPI文档。
+http://echarts.baidu.com 
+
+
+
 
 
 
