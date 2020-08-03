@@ -53,6 +53,13 @@ Redis作为一个流行的key-value内存数据库 ，由于性能高，数据�
 =========
 本书中涉及的软件下载链接如下所示：
 
+- 1.1.1	Redis简介
+
+Redis的官方网站是： http://Redis.io/ , 最新版本的Redis安装包是Redis 5.0.5(截止到2019年11月)
+
+我们也可以访问Redis的中文官方网站： http://www.redis.cn，这个页面有个方便的工具，访问互动教程链接(http://try.redis.io/),会弹出一个新的页面
+
+
 - 1.2.1	在Windows下安装Redis
 
 Redis的Windows版本下载链接
@@ -60,6 +67,9 @@ https://github.com/MicrosoftArchive/redis
 
 本节中使用的是基于Windows 64位版本下的Redis安装包,Redis安装包的下载地址:
 https://github.com/MSOpenTech/Redis/releases
+
+
+
 
 
 写书进度
