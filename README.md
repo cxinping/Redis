@@ -125,6 +125,17 @@ Apache Commons Pool: http://commons.apache.org/proper/commons-pool/download_  po
 Spring Boot官网上的文档质量很高，如果想快速理解SpringBoot的话，浏览官网网页是最快捷的途径，参考网址是：http://spring.io/guides/gs/rest-service/ 。
 
 
+- 9.1.2	 使用redis-stat
+
+redis-stat开源地址为：https://github.com/junegunn/redis-stat
+
+安装 redis-stat时，redis-stat 的使用需要依赖Ruby环境，但JRuby为我们提供了使用Java的打开方式。从https://github.com/junegunn/redis-stat/releases下载redis-stat-0.4.14.jar文件
+
+
+
+
+
+
 
 
 
