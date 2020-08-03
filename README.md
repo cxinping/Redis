@@ -139,7 +139,7 @@ start bootstrap Admin2的官方地址和github地址如下所示。
 
 github地址： https://github.com/IronSummitMedia/startbootstrap-sb-admin-2
 
-
+ECharts官网可以访问 http://echarts.baidu.com/
 
 
 
