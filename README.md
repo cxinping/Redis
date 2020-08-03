@@ -147,6 +147,17 @@ http://echarts.baidu.com/echarts2/doc/example.html
 如果需要定制复杂的图形，可以参考EChartsAPI文档。
 http://echarts.baidu.com 
 
+- 11.2.2	 Maven下载
+
+Maven的下载地址是 http://maven.apache.org/download.cgi
+
+- 11.2.6	 pom.xml文件中的groupId和artifactId到底该怎么定义？
+
+可以从http://mvnrepository.com/ 查找开源模块的依赖配置
+
+
+
+
 
 
 
