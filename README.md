@@ -68,6 +68,10 @@ https://github.com/MicrosoftArchive/redis
 本节中使用的是基于Windows 64位版本下的Redis安装包,Redis安装包的下载地址:
 https://github.com/MSOpenTech/Redis/releases
 
+- 1.2.2	在Linux下安裝Redis
+
+首先，从官网（https://redis.io/download）下载稳定版本的Redis源码包，目前(2019年9月)，本书使用的最新的稳定版本是5.0.5。
+
 - 1.3	Redis可视化工具 
 
 RedisDesktopManager官网地址如下：
