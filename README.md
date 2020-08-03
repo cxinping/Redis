@@ -73,6 +73,29 @@ https://github.com/MSOpenTech/Redis/releases
 RedisDesktopManager官网地址如下：
 https://redisdesktop.com/download
 
+- 1.4.2	安装 Linux系统
+
+CentOS的官网地址是 https://www.centos.org 。
+
+- 2.7.1	加载布隆过滤器模块
+
+在https://github.com/RedisBloom/RedisBloom下载最新发布的源码，点击页面的”Clone or download”按钮后选择”Download Zip”选项，下载RedisBloom-master.zip到本地硬盘。
+
+- 6.4.2	开始Redis 4 集群搭建
+
+下载Ruby依赖的redis.gem，可以去官网 https://rubygems.org/gems/redis/versions 下载。
+
+- 7.1.1	在Windows环境下安装Java 8
+
+JDK8的下载链接：
+http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+
+- 7.1.2	安装Tomcat 9
+
+Tomcat官网地址：http://tomcat.apache.org/ 
+
+
+
 
 
 
