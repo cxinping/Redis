@@ -153,10 +153,19 @@ Maven的下载地址是 http://maven.apache.org/download.cgi
 
 - 11.2.6	 pom.xml文件中的groupId和artifactId到底该怎么定义？
 
-可以从http://mvnrepository.com/ 查找开源模块的依赖配置
+可以从 http://mvnrepository.com/ 查找开源模块的依赖配置
+
+- 11.7.2	 使用Redis模块
+
+Python标准模块中没有连接Redis的模块，但已经有开源的连接单机的Redis的Python模块: 
+redis-py，更详细信息可以访问连接单机Redis的Python模块网页：
+
+https://github.com/andymccurdy/Redis-py
 
 
+Python连接集群的的Redis模块: redis-py-cluster，更多信息可以参考网页。
 
+http://readthedocs.org/projects/redis-py-cluster/
 
 
 
