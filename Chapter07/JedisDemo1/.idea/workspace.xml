@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisDemo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisDemo2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +40,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/test/thingsboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -56,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestSNS">
+  <component name="RunManager" selected="Application.RedisPFCountTest">
     <configuration name="JedisPoolDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.JedisPoolDemo" />
       <module name="JedisDemo1" />
@@ -83,8 +85,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisDemo" />
+    <configuration name="RedisPFCountTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisPFCountTest" />
       <module name="JedisDemo1" />
       <extension name="coverage">
         <pattern>
@@ -124,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisPFCountTest" />
         <item itemvalue="Application.TestSNS" />
         <item itemvalue="Application.RedisClusterDemo" />
         <item itemvalue="Application.RedisTransDemo" />
         <item itemvalue="Application.JedisPoolDemo" />
-        <item itemvalue="Application.RedisDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +170,7 @@
       <workItem from="1579812260818" duration="321000" />
       <workItem from="1579812617481" duration="518000" />
       <workItem from="1579813163241" duration="53000" />
+      <workItem from="1596637312292" duration="4658000" />
     </task>
     <servers />
   </component>

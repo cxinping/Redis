@@ -159,6 +159,10 @@ Maven的下载地址是 http://maven.apache.org/download.cgi
 
 可以从 http://mvnrepository.com/ 查找开源模块的依赖配置
 
+- 11.7.1	 在Windows下安装Python
+
+在下载页面（https://www.python.org/downloads/release/python-364/）中下载所需要的Python 3.6.4版本，读者可根据自己使用的平台选择相应的版本进行下载。
+
 - 11.7.2	 使用Redis模块
 
 Python标准模块中没有连接Redis的模块，但已经有开源的连接单机的Redis的Python模块: 

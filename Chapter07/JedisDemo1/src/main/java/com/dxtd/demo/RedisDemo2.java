@@ -23,6 +23,7 @@ public class RedisDemo2 {
         jedis.mset("name", "xinping", "age", "35", "qq", "759949947");
         jedis.incr("age"); // 进行加1操作
         System.out.println(jedis.get("name") + "-" + jedis.get("age") + "-" + jedis.get("qq"));
+        jedis.close();
 
     }
 
@@ -53,6 +54,7 @@ public class RedisDemo2 {
             String key = iter.next();
             System.out.println(key + ":" + jedis.hmget("user", key));
         }
+        jedis.close();
     }
 
     public static void testList() {
@@ -74,6 +76,7 @@ public class RedisDemo2 {
         jedis.rpush("java framework", "struts");
         jedis.rpush("java framework", "hibernate");
         System.out.println(jedis.lrange("java framework", 0, -1));
+        jedis.close();
     }
 
     public static void testSet() {
@@ -88,6 +91,7 @@ public class RedisDemo2 {
         // 是否是user集合的元素
         System.out.println(jedis.srandmember("usernames"));
         System.out.println(jedis.scard("usernames"));// 返回集合的元素个数
+        jedis.close();
     }
 
     public static void testSort()   {
@@ -104,6 +108,7 @@ public class RedisDemo2 {
         System.out.println(jedis.lrange("a", 0, -1));// [9, 3, 6, 1]
         System.out.println(jedis.sort("a")); // [1, 3, 6, 9] //输入排序后结果
         System.out.println(jedis.lrange("a", 0, -1));
+        jedis.close();
     }
 
     public static void  main(String[] args){
