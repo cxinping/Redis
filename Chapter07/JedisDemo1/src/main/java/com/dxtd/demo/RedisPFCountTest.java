@@ -6,9 +6,9 @@ public class RedisPFCountTest {
 
     public static void testHyperLogLog(){
         Jedis jedis = new Jedis("192.168.11.12",6379);
-        for (int i = 0; i < 10 * 10000; i++) {
-            System.out.println("i=" +  i);
-            jedis.pfadd("user:login:202008062200", "user-"+ i );
+        for (int i = 0; i < 100 * 10000; i++) {
+            //System.out.println("i=" +  i);
+            jedis.pfadd("user:login:2020080622", "user-"+ i );
         }
 
         long total = jedis.pfcount("user:login:202008062200");
