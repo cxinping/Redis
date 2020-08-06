@@ -11,8 +11,8 @@ public class RedisPFCountTest {
             jedis.pfadd("user:login:2020080622", "user-"+ i );
         }
 
-        long total = jedis.pfcount("user:login:202008062200");
-        System.out.printf("key=user:login:202008062200 count=%d", total);
+        long total = jedis.pfcount("user:login:2020080622");
+        System.out.printf("key=user:login:2020080622 count=%d", total);
 
         jedis.close();
     }
