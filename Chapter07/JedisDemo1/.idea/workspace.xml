@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisPFCountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisPFCountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisPFCountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisPFCountTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +168,7 @@
       <workItem from="1579812260818" duration="321000" />
       <workItem from="1579812617481" duration="518000" />
       <workItem from="1579813163241" duration="53000" />
-      <workItem from="1596637312292" duration="10951000" />
+      <workItem from="1596637312292" duration="11556000" />
     </task>
     <servers />
   </component>
