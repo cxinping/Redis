@@ -161,6 +161,8 @@ Maven的下载地址是 http://maven.apache.org/download.cgi
 
 - 11.7.1	 在Windows下安装Python
 
+访问Python官方网站：https://www.python.org。
+
 在下载页面（https://www.python.org/downloads/release/python-364/）中下载所需要的Python 3.6.4版本，读者可根据自己使用的平台选择相应的版本进行下载。
 
 - 11.7.2	 使用Redis模块
