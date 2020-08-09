@@ -3,10 +3,12 @@ package com.dxtd.redis;
 import io.rebloom.client.Client;
 
 public class RedisbloomDemo {
-    public static void main(String[] args) {
-        String userIdBloomKey = "userid";
+
+    public void test1(){
         // 创建客户端，jedis实例
-        Client client = new Client("192.168.11.12", 6379);
+        Client client = new Client("192.168.11.15", 6379);
+
+        String userIdBloomKey = "userid";
 
         // 创建一个有初始值和出错率的过滤器
         client.createFilter(userIdBloomKey,100000,0.01);
@@ -31,6 +33,27 @@ public class RedisbloomDemo {
         for (boolean flag : existsBoolean){
             System.out.println("某批value是否存在 " + flag );
         }
+    }
+
+    public static void main(String[] args) {
+        // 创建客户端，jedis实例
+        Client client = new Client("192.168.11.15", 6379);
+
+        String urlsBloomKey = "urls";
+
+        // 创建一个有初始值和出错率的过滤器
+        client.createFilter(urlsBloomKey,1000,0.01);
+        // 在布隆过滤器新增一个<key,value>
+        boolean url1 = client.add(urlsBloomKey,"http://www.163.com");
+        System.out.println("url1 add ：" + url1);
+
+        boolean url2 = client.add(urlsBloomKey,"http://www.cnblogs.com");
+        System.out.println("url2 add ：" + url1);
+
+        // 某个value是否在布隆过滤器存在
+        boolean exists = client.exists(urlsBloomKey, "http://www.163.com");
+        System.out.println("http://www.163.com 是否存在： " + exists);
+
     }
 
 }
