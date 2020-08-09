@@ -111,12 +111,25 @@ public class RedisDemo2 {
         jedis.close();
     }
 
+    public static void testString2() {
+        // 连接Redis服务器，127.0.0.1:6379
+        Jedis jedis = new Jedis("127.0.0.1", 6379);
+        //  添加数据
+        for(int i=0;i<50;i++){
+            jedis.set("key:"+i,  String.valueOf(i));
+        }
+
+        jedis.close();
+    }
+
     public static void  main(String[] args){
         //testString();
         //testMap();
         //testList();
         //testSet();
-        testSort();
+        //testSort();
+        testString2();
+
     }
 
 }
