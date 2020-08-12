@@ -17,15 +17,15 @@ public class RedisClusterDemo {
         config.setTestOnBorrow(true);
 
         HashSet<HostAndPort> nodes = new HashSet<>();
-        nodes.add(new HostAndPort("192.168.11.11", 8001));
-        nodes.add(new HostAndPort("192.168.11.11", 8002));
-        nodes.add(new HostAndPort("192.168.11.11", 8003));
-        nodes.add(new HostAndPort("192.168.11.11", 8004));
-        nodes.add(new HostAndPort("192.168.11.11", 8005));
-        nodes.add(new HostAndPort("192.168.11.11", 8006));
+        nodes.add(new HostAndPort("192.168.11.15", 8001));
+        nodes.add(new HostAndPort("192.168.11.15", 8002));
+        nodes.add(new HostAndPort("192.168.11.15", 8003));
+        nodes.add(new HostAndPort("192.168.11.15", 8004));
+        nodes.add(new HostAndPort("192.168.11.15", 8005));
+        nodes.add(new HostAndPort("192.168.11.15", 8006));
         JedisCluster cluster = new JedisCluster(nodes, config);
         cluster.set("book", "redis");
-        System.out.println("集群测试 ： " + cluster.get("book"));
+        System.out.println("集群测试  key=book , value=" + cluster.get("book"));
         cluster.close();
     }
 

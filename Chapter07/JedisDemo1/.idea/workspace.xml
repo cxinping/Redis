@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisDemo2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisDemo2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisDemo2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Chapter09/RedisMonitor/src/main/java/com/xinping/RedisMonitor/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Chapter09/RedisMonitor/src/main/java/com/xinping/RedisMonitor/server/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisClusterDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisClusterDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisClusterDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisClusterDemo.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +40,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Chapter10/RedisbloomDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -59,7 +58,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RedisDemo2">
+  <component name="RunManager" selected="Application.RedisClusterDemo">
     <configuration name="RedisClusterDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.dxtd.demo.RedisClusterDemo" />
       <module name="JedisDemo1" />
@@ -127,10 +126,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RedisClusterDemo" />
         <item itemvalue="Application.RedisDemo2" />
         <item itemvalue="Application.RedisPFCountTest" />
         <item itemvalue="Application.TestSNS" />
-        <item itemvalue="Application.RedisClusterDemo" />
         <item itemvalue="Application.RedisTransDemo" />
       </list>
     </recent_temporary>
@@ -174,6 +173,7 @@
       <workItem from="1596637312292" duration="11556000" />
       <workItem from="1596865125160" duration="18000" />
       <workItem from="1596971768680" duration="2038000" />
+      <workItem from="1597215256524" duration="1967000" />
     </task>
     <servers />
   </component>
