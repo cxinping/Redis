@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c2930fc0-830c-4017-9100-ab990f8b09dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisClusterDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dxtd/demo/RedisClusterDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisClusterDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dxtd/demo/RedisClusterDemo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../doc/Redis 4集群环境配置.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../doc/Redis 4集群环境配置.docx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../vue/Chapter01/RuoYi-Vue" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -173,7 +172,8 @@
       <workItem from="1596637312292" duration="11556000" />
       <workItem from="1596865125160" duration="18000" />
       <workItem from="1596971768680" duration="2038000" />
-      <workItem from="1597215256524" duration="1967000" />
+      <workItem from="1597215256524" duration="2570000" />
+      <workItem from="1597650794652" duration="28000" />
     </task>
     <servers />
   </component>
