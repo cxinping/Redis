@@ -184,7 +184,7 @@ http://readthedocs.org/projects/redis-py-cluster/
 
 写书进度
 =========
-2019年10月完成本书的编写
+2020年10月完成本书的编写
 
 - 2019年10月18日本书稿件第一版完成。
 
@@ -192,6 +192,7 @@ http://readthedocs.org/projects/redis-py-cluster/
 
 - 2020年4月7日本书稿件第三版修改完成。
 
+- 2020年9月3日本书稿件第四版修改完成。
 
 
 
