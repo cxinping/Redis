@@ -12,6 +12,7 @@ import java.util.Map;
 public class SessionController {
 
     // http://127.0.0.1:8080/session/login?username=xinping&password=123
+    // http://127.0.0.1:8081/session/login?username=xinping&password=123
     @RequestMapping("/session/login")
     @ResponseBody
     public Map login(@RequestParam("username") String username,@RequestParam("password") String password,HttpServletRequest request, HttpSession session) {
@@ -29,6 +30,7 @@ public class SessionController {
     }
 
     // http://127.0.0.1:8080/session/get?username=xinping
+    // http://127.0.0.1:8082/session/get?username=xinping
     @RequestMapping("/session/get")
     @ResponseBody
     public Map get(@RequestParam("username") String username,HttpServletRequest request, HttpSession session) {
