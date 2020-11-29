@@ -9,44 +9,57 @@ import java.util.Map;
 @RestController
 public class SessionController {
 
-    // http://127.0.0.1:8080/session/login?username=xinping&password=123
-    // http://127.0.0.1:8081/session/login?username=xinping&password=123
+    /**
+     * 登录系统
+     *
+     * http://127.0.0.1:8080/session/login?username=xinping&password=123
+     * http://127.0.0.1:8081/session/login?username=xinping&password=123
+     * */
     @RequestMapping(value="/session/login", method = RequestMethod.GET)
     @ResponseBody
     public Map login(@RequestParam("username") String username,@RequestParam("password") String password,HttpServletRequest request, HttpSession session) {
-        System.out.println("===============登录成功===============");
-        User user = new User();
-        user.setName(username);
-        user.setPassword(password);
-        request.getSession().setAttribute("admin", user);
-        String sessionId = session.getId();
-        System.out.println("sessionId="+sessionId);
-        Map result = new HashMap();
-        result.put("message" , user);
-        result.put("sessionId",sessionId);
+        String message = "login failure";
+        Map<String, Object> result = new HashMap<String, Object>();
+        if(username != null && "xinping".equals(username) && "123".equals(password)){
+            User user = new User();
+            user.setName(username);
+            user.setPassword(password);
+            request.getSession().setAttribute("admin", user);
+            message = "login success";
+            result.put("message" , message);
+            result.put("sessionId",session.getId());
+        }else{
+            result.put("message" , message);
+        }
+
         return result;
     }
 
-    // http://127.0.0.1:8080/session/get?username=xinping
-    // http://127.0.0.1:8082/session/get?username=xinping
+    /**
+     * 查询用户
+     *
+     * http://127.0.0.1:8080/session/get?username=xinping
+     * http://127.0.0.1:8082/session/get?username=xinping
+     * */
     @RequestMapping(value="/session/get", method = RequestMethod.GET)
     @ResponseBody
     public Map get(@RequestParam("username") String username,HttpServletRequest request, HttpSession session) {
-        System.out.println("=============== 查询用户信息 ===============");
         Object value = request.getSession().getAttribute("admin");
-        Map result = new HashMap();
-        String sessionId = session.getId();
+        Map<String,Object> result = new HashMap<String,Object>();
         result.put("message" ,value);
-        result.put("sessionId",sessionId);
+        result.put("sessionId",session.getId());
         return result;
     }
 
-    // http://127.0.0.1:8080/session/logout
-    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    /**
+     * 退出系统
+     *
+     * http://127.0.0.1:8080/session/logout
+     * http://127.0.0.1:8081/session/logout
+     * */
+    @RequestMapping(value = "/session/logout", method = RequestMethod.GET)
     @ResponseBody
     public Map logout(HttpSession session) {
-        System.out.println("============退出系统=============");
-        System.out.println(session.getId());
         session.removeAttribute("admin");
         session.invalidate();
         Map result = new HashMap();
