@@ -1,8 +1,6 @@
 package com.dxtd.SpringSessionDemo.controller;
 
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -13,7 +11,7 @@ public class SessionController {
 
     // http://127.0.0.1:8080/session/login?username=xinping&password=123
     // http://127.0.0.1:8081/session/login?username=xinping&password=123
-    @RequestMapping("/session/login")
+    @RequestMapping(value="/session/login", method = RequestMethod.GET)
     @ResponseBody
     public Map login(@RequestParam("username") String username,@RequestParam("password") String password,HttpServletRequest request, HttpSession session) {
         System.out.println("===============登录成功===============");
@@ -31,7 +29,7 @@ public class SessionController {
 
     // http://127.0.0.1:8080/session/get?username=xinping
     // http://127.0.0.1:8082/session/get?username=xinping
-    @RequestMapping("/session/get")
+    @RequestMapping(value="/session/get", method = RequestMethod.GET)
     @ResponseBody
     public Map get(@RequestParam("username") String username,HttpServletRequest request, HttpSession session) {
         System.out.println("=============== 查询用户信息 ===============");
@@ -44,7 +42,7 @@ public class SessionController {
     }
 
     // http://127.0.0.1:8080/session/logout
-    @PostMapping(value = "logout")
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
     @ResponseBody
     public Map logout(HttpSession session) {
         System.out.println("============退出系统=============");
@@ -55,8 +53,5 @@ public class SessionController {
         result.put("message","退出系统");
         return result;
     }
-
-
-
 
 }
