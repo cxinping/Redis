@@ -184,7 +184,9 @@ http://readthedocs.org/projects/redis-py-cluster/
 =========
 《Redis 6 开发与实战 》已经在京东商城上线了，欢迎大家购买。
 
-**亲爱的读者们，现在可以在京东商城购买《Redis 6 开发与实战 》了**。店铺地址是：
+**亲爱的读者们，现在可以在京东商城购买《Redis 6 开发与实战 》了**。
+
+店铺地址是：
 https://item.jd.com/13381600.html
 
 
